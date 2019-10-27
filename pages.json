@@ -1,0 +1,53 @@
+{
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			"path": "pages/x_login/x_login",
+			"style": {
+				"navigationBarTitleText": "广西科技项目管理APP"
+			}
+		},{
+			"path": "pages/web/web",
+			"style": {
+				"navigationBarTitleText": "广西科技项目管理APP",
+				"app-plus": {
+					"titleNView": false
+				}
+			}
+		},
+		{
+			"path": "pages/index/index",
+			"style": {
+				"navigationBarTitleText": "广西科技项目管理APP",
+				"app-plus": {
+					"titleNView": false
+				}
+			}
+		},{
+            "path" : "pages/1_notic/1_notic",
+			"style": {
+				"navigationBarTitleText": "通知公告"
+			}
+        },{
+            "path" : "pages/2_program/2_program",
+            "style": {
+            	"navigationBarTitleText": "三百两千"
+            }
+        },{
+            "path" : "pages/3_excel/3_excel",
+            "style": {
+            	"navigationBarTitleText": "项目报表"
+            }
+        },{
+            "path" : "pages/4_plan/4_plan",
+            "style": {
+            	"navigationBarTitleText": "项目进度"
+            }
+        }
+    ],
+	"globalStyle": {
+		"navigationBarTitleText": "首页",
+		"navigationBarTextStyle":"white",
+		"navigationBarBackgroundColor":"#0bc99d",
+		"backgroundColor": "#F8F8F8"
+	}
+}
