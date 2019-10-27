@@ -18,6 +18,13 @@ Vue.component('tabbar', tabbar)
 Vue.component('mark', mark)
 Vue.component('common-task', commonTask)
 
+
+//表格
+
+import zTable from '@/components/z-table/z-table.vue'
+Vue.component('z-table', zTable)
+
+
 import noticeData from '@/common/notice_data.js' 
 import mapData from '@/common/map_data.js' 
 // 公共数据
@@ -26,7 +33,8 @@ Vue.prototype.AllData = {
 	noticeTongBao: noticeData.TongBao , 
 	noticeNews: noticeData.News , 
 	mapData:mapData.markers,
-	program:noticeData.program
+	programIDList:noticeData.programIDList,
+	programList:noticeData.programList,
 }
 
 

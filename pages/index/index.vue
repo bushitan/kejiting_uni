@@ -91,7 +91,7 @@
 		<scroll-view scroll-x="true" class="slider">
 			<template v-for="(it, i) in records">
 				<view class="item" :key="'slider_item_'+i" :style="{background: it.bg, marginRight: i === records.length - 1 ? '15px' : '0px'}">
-					<view class="item_content">
+					<view class="item_content" @click="notic()">
 						<view class="title">
 							<text class="first">{{it.title}}</text>
 							<text class="main">{{it.mainTeacher}}</text>
@@ -178,7 +178,7 @@
 				],
 				records: [{
 						bg: 'linear-gradient(-30deg,rgba(171,218,255,1),rgba(215,239,255,1))',
-						title: '"三百两千"项目上线',
+						title: '广西科技项目管理APP顺利上线',
 						mainTeacher: '2019-10-22',
 						subTitle: '标题名称',
 						subColor: '#15639F',

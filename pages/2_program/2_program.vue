@@ -7,6 +7,7 @@
 				:scale="map.scale"
 				:markers="map.markers"
 				class="map"
+				@markertap="clickMarker"
 			></map>
 		</view>
 		<!-- <view class="oa-node ">			
@@ -17,18 +18,15 @@
 		</view>
 		<uni-list>
 			<view class="oa-node oa-pd15 oa-white oa-line_bottom" v-for="(item,key) in list">
-				<common-task
-					status="1"
-					:title="item.title"
-					:companyName="item.companyName"
-					:leader="item.leader"
-					:sn="item.sn"
-					:date="item.date"
-					:jingji="item.jingji"
-					:jishu="item.jishu"
-					:des="item.des"
-					
-				></common-task>
+				<view class="" @click="clickDetail(item[0])">
+					<common-task
+						status="1"
+						:title="item[1]"
+						:companyName="item[2]"
+						:leader="item[3]"	
+						:des="item[5]"		
+					></common-task>
+				</view>				
 			</view>	
 		</uni-list>
 		
@@ -77,7 +75,23 @@
 						scale:7,		
 						markers:this.AllData.mapData,	
 					},
-					list :this.AllData.program
+					list :this.AllData.programIDList
+				})
+			},
+			
+			// 点击细节
+			clickDetail(detailID){
+				console.log(detailID)
+				uni.navigateTo({
+					url:"/pages/5_detail/5_detail?id=" + detailID
+				})
+			},
+			
+			// 点击坐标
+			clickMarker(e){
+				console.log(e.detail.markerId)
+				uni.navigateTo({
+					url:"/pages/5_detail/5_detail?id=" + e.detail.markerId
 				})
 			},
 			
@@ -102,6 +116,8 @@
 				console.log(list)
 				this.setData({ list : list })
 			},
+			
+			
 			
 			getDuBan(){
 				return this.AllData.noticeDuBan

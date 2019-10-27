@@ -14,11 +14,11 @@
 				<text class='uni-text'><label>负责人</label>:{{leader}}</text>
 				<text class='uni-text' v-show="jingji!=''"><label>经济指标</label>:{{jingji}}</text>
 				<text class='uni-text' v-show="jishu!=''"><label>技术指标</label>:{{jishu}}</text>
-				<text class='uni-text' v-show="des!=''"><label>描述</label>:{{des}}</text>
+				<text class='uni-text' v-show="des!=''"><label>下达文号</label>:{{des}}</text>
 				
-				<view class="uni-text-small uni-ellipsis  ">
+		<!-- 		<view class="uni-text-small uni-ellipsis  ">
 					<view class="date dpre">项目申报时间:{{date}}</view>
-				</view>
+				</view> -->
 				
 			</view>
 			<view class="uni-triplex-right">

@@ -42,6 +42,11 @@
             "style": {
             	"navigationBarTitleText": "项目进度"
             }
+        },{
+            "path" : "pages/5_detail/5_detail",
+            "style": {
+            	"navigationBarTitleText": "项目详情"
+            }
         }
     ],
 	"globalStyle": {

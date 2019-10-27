@@ -1,5 +1,7 @@
 module.exports ={
 	markers: [{
+		
+		id:34,
 		name:"柳州",
 		latitude: 24.3254300000,
 		longitude: 109.4155200000,
@@ -15,6 +17,8 @@ module.exports ={
 		},
 		// iconPath: '../../../static/location.png'
 	}, {
+		
+		id:4,
 		name:"桂林",
 		latitude: 25.2736100000,
 		longitude:110.2900200000,
@@ -29,6 +33,7 @@ module.exports ={
 			textAlign:"center",
 		},
 	}, {
+		id:53,
 		name:"北海",
 		latitude: 21.4811200000,
 		longitude:109.1200800000,
@@ -43,11 +48,12 @@ module.exports ={
 			textAlign:"center",
 		},
 	}, {
+		id:21,
 		name:"南宁",
 		latitude: 22.8171885913,
 		longitude:108.3663511276,
 		callout:{
-			content:"动力电池用磷酸铁的开发和应用",
+			content:"优质高纯纳米碳酸钙的关键技术与产业化应用示范",
 			color:"#888",
 			fontSize:13,
 			borderRadius:5,

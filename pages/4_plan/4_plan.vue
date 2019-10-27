@@ -6,14 +6,25 @@
 		</view>
 		<uni-list>
 			<view class="oa-node oa-pd15 oa-white oa-line_bottom" v-for="(item,key) in list">
-				<common-task
+				<view class="" @click="clickDetail(item[0])">
+					<common-task
+						status="1"
+						:title="item[1]"
+						:companyName="item[2]"
+						:leader="item[3]"	
+						:sn="'项目进度'+item[4]"	
+						:des="item[5]"		
+					></common-task>
+				</view>	
+				<!-- <common-task
 					status="2"
 					:title="item.title"
 					:companyName="item.companyName"
 					:leader="item.leader"
 					:sn="'完成进度'+item.rate"
 					:date="item.date"
-				></common-task>
+				></common-task> -->
+				
 			</view>	
 		</uni-list>
 		
@@ -48,7 +59,11 @@
 			 * @method 初始化
 			 */
 			onInit(e){
-				this.setData({ list : this.AllData.program })
+				this.setData({ 
+					// list : this.AllData.program ,
+					
+					list :this.AllData.programIDList
+				})
 			},
 			
 			/**
