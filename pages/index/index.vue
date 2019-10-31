@@ -31,6 +31,16 @@
 					</view>
 				</template>
 			</view>
+			<view class="oa-node map_box">
+				<map
+					:latitude="map.latitude" 
+					:longitude="map.longitude"
+					:scale="map.scale"
+					:markers="map.markers"
+					class="map"
+					@markertap="clickMarker"
+				></map>
+			</view>
 			<view class="oa-node oa-pd15">
 				<view class="oa-white oa-pd15">					
 						<view class="example-title">下达文号</view>
@@ -121,6 +131,7 @@
 					
 				},
 				
+				map:{},
 				articleList:[
 					{name:"桂科创字[2017]25号"},
 					{name:"桂科创字[2017]25号"},
@@ -207,9 +218,20 @@
 			}
 		},
 		onLoad() {
-
+			this.onInit()
 		},
 		methods: {
+			onInit(e){
+				this.setData({ 
+					map:{
+						latitude:"22.8171885913",
+						longitude:"108.3663511276",	
+						scale:6,		
+						markers:this.AllData.mapData,	
+					},
+				})
+			},
+			
 			nav(pathUrl){
 				uni.navigateTo({
 					url:pathUrl
@@ -389,7 +411,13 @@
 				}
 			}
 		}
-
+		.map_box{
+			padding: 15px 15px 0;
+		}
+		.map{
+			width: 100%;
+			height: 40vh;
+		}
 		.menu_swiper{
 			display: flex;
 			flex-direction: row;
