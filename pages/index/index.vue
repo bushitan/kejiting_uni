@@ -41,7 +41,7 @@
 					@markertap="clickMarker"
 				></map>
 			</view>
-			<view class="oa-node oa-pd15">
+<!-- 			<view class="oa-node oa-pd15">
 				<view class="oa-white oa-pd15">					
 						<view class="example-title">下达文号</view>
 				</view>
@@ -51,14 +51,9 @@
 						:title="item.name" 
 						v-for="(item,key) in articleList" 
 						@click="program()"
-					/>
-					<!-- <uni-list-item title="标题文字" />
-					<uni-list-item :show-badge="true" badge-text="我的" title="标题文字" badgeType="warning"/>
-					<uni-list-item :showText="true" badge-text="2019-06-13至2019-06-13" title="标题文字" />
-					<uni-list-item :showText="true" :show-arrow="false" badge-text="杨程：[拟同意。其他文字其他文字] 2019-05-28 20:18:03" title="标题文字" />
-					<uni-list-item :disabled="true" :show-badge="true" :badge-text="23" title="禁用状态" /> -->
+					/>				
 				</uni-list>
-			</view>
+			</view> -->
 			
 			<!-- <view class="menu_swiper">
 				<swiper :indicator-dots="true" 
@@ -94,13 +89,15 @@
 				<image src="/static/tag.png" class="bg"></image>
 			</view> -->
 		</view>
-		<view class="mark">
-			<view class="title">工作快讯</view>
+		<view class="mark" @click="program()">
+			<view class="title">下达文号</view>
 			<view class="more" @click="notic()">更多</view>
 		</view>
 		<scroll-view scroll-x="true" class="slider">
 			<template v-for="(it, i) in records">
-				<view class="item" :key="'slider_item_'+i" :style="{background: it.bg, marginRight: i === records.length - 1 ? '15px' : '0px'}">
+				<view class="item" :key="'slider_item_'+i" 
+					:style="{background: it.bg, marginRight: i === records.length - 1 ? '15px' : '0px'}"
+					@click="program()">
 					<view class="item_content" @click="notic()">
 						<view class="title">
 							<text class="first">{{it.title}}</text>
@@ -189,30 +186,32 @@
 				],
 				records: [{
 						bg: 'linear-gradient(-30deg,rgba(171,218,255,1),rgba(215,239,255,1))',
-						title: '广西科技项目管理APP顺利上线',
-						mainTeacher: '2019-10-22',
-						subTitle: '标题名称',
-						subColor: '#15639F',
-						icon: '/static/test2.png',
-						isFree: true
+						title: '桂科创字[2017]25号',
+						// mainTeacher: '2019-10-22',
+						// subTitle: '标题名称',
+						// subColor: '#15639F',
+						// icon: '/static/test2.png',
+						// isFree: true
 					},
 					{
 						bg: 'linear-gradient(-30deg,rgba(192,253,227,1),rgba(224,252,240,1))',
-						title: '2019项目进度',
-						mainTeacher: '2019-10-28',
-						subTitle: '标题名称',
-						subColor: '#07B77B',
-						icon: '/static/test.png',
-						isFree: false
+						title: '桂科创字[2017]25号',
 					},
 					{
 						bg: 'linear-gradient(-30deg,rgba(171,218,255,1),rgba(215,239,255,1))',
-						title: '2018年项目汇报',
-						mainTeacher: '2019-7-28A',
-						subTitle: '标题名称',
-						subColor: '#15639F',
-						icon: '/static/test2.png',
-						isFree: true
+						title: '桂科计字[2017]204号',
+					},
+					{
+						bg: 'linear-gradient(-30deg,rgba(171,218,255,1),rgba(215,239,255,1))',
+						title: '桂科计字[2018]118号',
+					},
+					{
+						bg: 'linear-gradient(-30deg,rgba(192,253,227,1),rgba(224,252,240,1))',
+						title: '桂科计字[2018]242号',
+					},
+					{
+						bg: 'linear-gradient(-30deg,rgba(171,218,255,1),rgba(215,239,255,1))',
+						title: '桂科计字[2019]46号',
 					}
 				]
 			}
@@ -237,7 +236,13 @@
 					url:pathUrl
 				})
 			},
-			
+			// 点击坐标
+			clickMarker(e){
+				console.log(e.detail.markerId)
+				uni.navigateTo({
+					url:"/pages/5_detail/5_detail?id=" + e.detail.markerId
+				})
+			},
 			/**
 			 * @method 项目
 			 */
