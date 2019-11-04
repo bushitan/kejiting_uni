@@ -1,9 +1,23 @@
 <template>
 	<view>
 		
-		<view class="oa-white oa-pd15">
+		<!-- <view class="oa-white oa-pd15">
 			<view class="example-title">项目进度</view>
+		</view> -->
+		<view class="oa-white ">
+		   <picker @change="bindPickerChange" :value="index" :range="array">
+				<uni-list-item 
+				title="选择区域" 
+				:showArrow="true" 
+			    :showBadge="true" :badgeText="array[index]"></uni-list-item>
+			</picker>	
 		</view>
+		
+		<view class="oa-space_10"></view>
+		<chart-ring></chart-ring>
+		
+		<view class="oa-space_10"></view>
+		<view class="oa-white oa-pd15 ">项目详情</view>
 		<uni-list>
 			<view class="oa-node oa-pd15 oa-white oa-line_bottom" v-for="(item,key) in list">
 				<view class="" @click="clickDetail(item[0])">
@@ -35,7 +49,13 @@
 	export default {
 		data() {
 			return {
-							
+				array: [ '全部', '南宁', '桂林','柳州', '贺州',
+					'河池','百色','崇左','来宾',
+					'钦州','北海','防城港',
+					'贵港','玉林','梧州',
+				],
+				index: 0,
+				
 				//顶部tab选项卡
 				current: 0,
 				tabBars: [
@@ -67,6 +87,15 @@
 			},
 			
 			/**
+			 * @method 选择选项卡
+			 */
+			bindPickerChange: function(e) {
+				console.log('picker发送选择改变，携带值为', e.target.value)
+				this.index = e.target.value
+			},
+			
+			
+			/**
 			 * @method 点击菜单
 			 */
 			clickTab(e){
@@ -87,6 +116,13 @@
 				}
 				console.log(list)
 				this.setData({ list : list })
+			},
+			// 点击细节
+			clickDetail(detailID){
+				console.log(detailID)
+				uni.navigateTo({
+					url:"/pages/5_detail/5_detail?id=" + detailID
+				})
 			},
 			
 			getDuBan(){

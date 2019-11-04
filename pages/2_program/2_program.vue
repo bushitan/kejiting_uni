@@ -13,9 +13,18 @@
 		<!-- <view class="oa-node ">			
 			<tabbar :list="tabBars" @ontabtap="clickTab"></tabbar>
 		</view> -->
-		<view class="oa-white oa-pd15">
-			<view class="example-title">三千两百项目列表</view>
+		<view class="oa-white ">
+		   <picker @change="bindPickerChange" :value="index" :range="array">
+				<uni-list-item 
+				title="选择区域" 
+				:showArrow="true" 
+			    :showBadge="true" :badgeText="array[index]"></uni-list-item>
+			</picker>	
 		</view>
+		<chart-ring></chart-ring>
+		
+		<view class="oa-space_10"></view>
+		<view class="oa-white oa-pd15 ">项目详情</view>
 		<uni-list>
 			<view class="oa-node oa-pd15 oa-white oa-line_bottom" v-for="(item,key) in list">
 				<view class="" @click="clickDetail(item[0])">
@@ -35,10 +44,23 @@
 </template>
 
 <script>
+	
+	
 	export default {
 		data() {
 			return {
 				map:{},
+				
+				title: 'picker',
+				array: [ '全部', '南宁', '桂林','柳州', '贺州', 
+					'河池','百色','崇左','来宾',
+					'钦州','北海','防城港',
+					'贵港','玉林','梧州',
+				],
+				index: 0,
+				
+		
+				
 				//顶部tab选项卡
 				current: 0,
 				tabBars: [
@@ -78,6 +100,17 @@
 					list :this.AllData.programIDList
 				})
 			},
+			
+			/**
+			 * @method 选择选项卡
+			 */
+			bindPickerChange: function(e) {
+				console.log('picker发送选择改变，携带值为', e.target.value)
+				this.index = e.target.value
+			},
+			
+			
+			
 			
 			// 点击细节
 			clickDetail(detailID){
@@ -136,6 +169,6 @@
 <style>
 	.map{
 		width: 100vw;
-		height: 70vh;
+		height: 50vh;
 	}
 </style>

@@ -7,9 +7,11 @@ Vue.config.productionTip = false
 import uniIcon from '@/components/uni-icon/uni-icon.vue'
 import uniList from '@/components/uni-list/uni-list.vue'
 import uniListItem from '@/components/uni-list-item/uni-list-item.vue'
+import uniBadge from '@/components/uni-badge/uni-badge.vue'
 Vue.component('uni-icon', uniIcon)
 Vue.component('uni-list', uniList)
 Vue.component('uni-list-item', uniListItem)
+Vue.component('uni-badge', uniBadge)
 
 import tabbar from '@/components/4_tabbar/4_tabbar.vue'   //菜单栏
 import mark from '@/components/5_mark/5_mark.vue'   //菜单栏
@@ -20,13 +22,23 @@ Vue.component('common-task', commonTask)
 
 
 //表格
-
 import zTable from '@/components/z-table/z-table.vue'
 Vue.component('z-table', zTable)
 
+// 图标
+import uCharts from '@/components/u-charts/u-charts.js';
+Vue.component('u-charts', uCharts);
+import chartRing from '@/components/6_rin/6_rin.vue';
+Vue.component('chart-ring', chartRing);
 
+
+
+// 基础数据
 import noticeData from '@/common/notice_data.js' 
 import mapData from '@/common/map_data.js' 
+
+
+
 // 公共数据
 Vue.prototype.AllData = {
 	noticeDuBan: noticeData.DuBan , 
