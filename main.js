@@ -30,6 +30,10 @@ import uCharts from '@/components/u-charts/u-charts.js';
 Vue.component('u-charts', uCharts);
 import chartRing from '@/components/6_rin/6_rin.vue';
 Vue.component('chart-ring', chartRing);
+import chartColumn from '@/components/6_column/6_column.vue';
+Vue.component('chart-column', chartColumn);
+import chartLine from '@/components/6_line/6_line.vue';
+Vue.component('chart-line', chartLine);
 
 
 
@@ -49,6 +53,23 @@ Vue.prototype.AllData = {
 	programList:noticeData.programList,
 }
 
+Vue.prototype.countryRate = [
+	[30,30,40],
+	[10,40,50],
+	[38,61,1],
+	[17,28,56],
+	[15,5,80],
+	[12,32,56],
+	[17,28,56],
+	[20,31,50],
+	[5,5,90],
+	[21,49,53],
+	[35,40,25],
+	[15,30,55],
+	[50,20,30],
+	[20,31,50],
+	[10,80,10],
+]
 
 
 

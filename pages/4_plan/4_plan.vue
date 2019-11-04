@@ -14,7 +14,10 @@
 		</view>
 		
 		<view class="oa-space_10"></view>
-		<chart-ring></chart-ring>
+		<chart-ring :rate="rate" ></chart-ring>
+		
+		<chart-column></chart-column>
+		<chart-line></chart-line>
 		
 		<view class="oa-space_10"></view>
 		<view class="oa-white oa-pd15 ">项目详情</view>
@@ -69,6 +72,10 @@
 				],
 				list:[],
 				status:"all",
+				
+				
+				rate:[30,30,40],
+				
 			};
 		},
 		onLoad(){
@@ -91,7 +98,10 @@
 			 */
 			bindPickerChange: function(e) {
 				console.log('picker发送选择改变，携带值为', e.target.value)
-				this.index = e.target.value
+				var value =  e.target.value
+				this.index = value
+				
+				this.setData({rate:this.countryRate[value]})
 			},
 			
 			

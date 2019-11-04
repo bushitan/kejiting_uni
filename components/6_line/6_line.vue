@@ -1,14 +1,18 @@
 <template>
 	<view class="content">
 		<view class="qiun-bg-white qiun-title-bar qiun-common-mt">
-			<view class="qiun-title-dot-light">完成图</view>
+			<view class="qiun-title-dot-light">图三</view>
 		</view>
 		<view class="qiun-charts">
 			<!--#ifdef MP-ALIPAY -->
-			<canvas canvas-id="canvasRing" id="canvasRing" class="charts" :style="{'width':cWidth*pixelRatio+'px','height':cHeight*pixelRatio+'px', 'transform': 'scale('+(1/pixelRatio)+')','margin-left':-cWidth*(pixelRatio-1)/2+'px','margin-top':-cHeight*(pixelRatio-1)/2+'px'}"></canvas>
+			<canvas canvas-id="canvasLineA" id="canvasLineA" class="charts" :style="{'width':cWidth*pixelRatio+'px','height':cHeight*pixelRatio+'px', 'transform': 'scale('+(1/pixelRatio)+')','margin-left':-cWidth*(pixelRatio-1)/2+'px','margin-top':-cHeight*(pixelRatio-1)/2+'px'}"
+			 disable-scroll=true @touchstart="touchLineA" @touchmove="moveLineA" @touchend="touchEndLineA"></canvas>
+			<!-- 使用图表拖拽功能时，建议给canvas增加disable-scroll=true属性，在拖拽时禁止屏幕滚动 -->
 			<!--#endif-->
 			<!--#ifndef MP-ALIPAY -->
-			<canvas canvas-id="canvasRing" id="canvasRing" class="charts"></canvas>
+			<canvas canvas-id="canvasLineA" id="canvasLineA" class="charts" disable-scroll=true @touchstart="touchLineA"
+			 @touchmove="moveLineA" @touchend="touchEndLineA"></canvas>
+			<!-- 使用图表拖拽功能时，建议给canvas增加disable-scroll=true属性，在拖拽时禁止屏幕滚动 -->
 			<!--#endif-->
 		</view>
 	</view>
@@ -39,30 +43,8 @@
 				type:String,
 				default :"pre",
 			},
-			
-			
-			rate:{
-				type:Array,
-				default:()=>{
-					return [30,30,40]
-				},
-			},
-			
-			// num:{
-			// 	type:Object,
-			// 	default :()=>{
-			// 		return {					}
-			// 	},
-			// },
-			// 
-			// list:{
-			// 	type:Array,
-			// 	default :()=>{
-			// 		return []
-			// 	},
-			// },
 		},
-		data() { 
+		data() {
             return {
 				
 				cWidth: '',
@@ -79,16 +61,11 @@
 				itemCount: 20, //x轴单屏数据密度
 				sliderMax: 50,
 				
-				// rin:{						
-				// 	pre:30,
-				// 	ing:30,
-				// 	complete:40,
-				// }
 			}
 		},
 		
-		
-		created(){			
+		created(){
+			
 			_self = this
 			this.cWidth = uni.upx2px(750);
 			this.cHeight = uni.upx2px(500);
@@ -97,32 +74,9 @@
 			this.cWidth3 = uni.upx2px(250);
 			this.cHeight3 = uni.upx2px(250);
 			this.arcbarWidth = uni.upx2px(24);
-			this.gaugeWidth = uni.upx2px(30);			
-			this.getServerData();
-		},
-		watch:{		
+			this.gaugeWidth = uni.upx2px(30);
 			
-			rate(val){
-				console.log(val)
-				
-				// this.setRate(val)
-				
-				var Ring = {}
-				Ring.series = [
-					{name: "进行中", data: val[0]},
-					{name: "已完成", data: val[1]},
-					{name: "未开始", data: val[2]},
-				]
-				 
-				// //自定义文案示例，需设置format字段
-				// for (let i = 0; i < Ring.series.length; i++) {
-				// 	Ring.series[i].format = () => {
-				// 		return Ring.series[i].name + Ring.series[i].data
-				// 	};
-				// }
-				
-				this.showRing("canvasRing", Ring);
-			}
+			this.getServerData();
 		},
 		methods:{
 			onInit(){
@@ -210,8 +164,37 @@
 				ColumnMeter.categories = data.ColumnMeter.categories;
 				//这里的series数据,如果为Meter，series[0]定义为外层数据，series[1]定义为内层数据
 				ColumnMeter.series = data.ColumnMeter.series;
-				LineA.categories = data.LineA.categories;
-				LineA.series = data.LineA.series;
+				
+				// console.log(data.LineA)
+				// LineA.categories = data.LineA.categories;
+				// LineA.series = data.LineA.series;
+				
+				LineA.categories = ["2017","2018","2019"]
+				LineA.series = [
+					{
+						color: "#1890ff",
+						name: "总投资",
+						type: "line",
+						data:[10,100,150]
+					},
+					{
+						color: "red",
+						name: "在研数量",
+						type: "line",
+						data:[5,50,100]
+					},
+					{
+						color: "yellow",
+						name: "完成数量",
+						type: "line",
+						data:[15,80,80]
+					},
+				]
+				
+	
+				
+				
+				
 				LineB.categories = data.LineB.categories;
 				LineB.series = data.LineB.series;
 				Area.categories = data.Area.categories;
@@ -220,9 +203,9 @@
 				
 				// Ring.series = data.Ring.series;
 				Ring.series = [
-					{name: "进行中", data: 30},
+					{name: "进行中", data: 50},
 					{name: "已完成", data: 30},
-					{name: "未开始", data: 40},
+					{name: "未开始", data: 20},
 				]
 				 
 				//自定义文案示例，需设置format字段
@@ -244,11 +227,11 @@
 				Mix.series = data.Mix.series;
 				// this.showColumn("canvasColumn", Column);
 				// this.showColumnMeter("canvasColumnMeter", ColumnMeter);
-				// this.showLineA("canvasLineA", LineA);
+				this.showLineA("canvasLineA", LineA);
 				// this.showLineB("canvasLineB", LineB);
 				// this.showArea("canvasArea", Area);
 				// this.showPie("canvasPie", Pie);
-				this.showRing("canvasRing", Ring);
+				// this.showRing("canvasRing", Ring);
 				// this.showRadar("canvasRadar", Radar);
 				// this.showArcbar("canvasArcbar1", Arcbar1);
 				// this.showArcbar2("canvasArcbar2", Arcbar2);
@@ -257,42 +240,66 @@
 				// this.showCandle("canvasCandle", Candle);
 				// this.showMix("canvasMix", Mix);
 			},
-			showRing(canvasId, chartData) {
-				new uCharts({
+			showLineA(canvasId, chartData) {
+				canvaLineA = new uCharts({
 					$this: _self,
 					canvasId: canvasId,
-					type: 'ring',
+					type: 'line',
 					fontSize: 11,
 					legend: true,
-					// title: {
-					// 	name: '70%',
-					// 	color: '#7cb5ec',
-					// 	fontSize: 25 * _self.pixelRatio,
-					// 	offsetY: -20 * _self.pixelRatio, //新增参数，自定义调整Y轴文案距离
-					// },
-					// subtitle: {
-					// 	name: '收益率',
-					// 	color: '#666666',
-					// 	fontSize: 15 * _self.pixelRatio,
-					// 	offsetY: 30 * _self.pixelRatio, //新增参数，自定义调整Y轴文案距离
-					// },
-					extra: {
-						pie: {
-							lableWidth: 15,
-							ringWidth: 40 * _self.pixelRatio, //圆环的宽度
-							offsetAngle: -45 //圆环的角度
-						}
-					},
+					dataLabel: false,
+					dataPointShape: false,
 					background: '#FFFFFF',
 					pixelRatio: _self.pixelRatio,
+					categories: chartData.categories,
 					series: chartData.series,
 					animation: false,
+					enableScroll: true, //开启图表拖拽功能
+					xAxis: {
+						disableGrid: false,
+						type: 'grid',
+						gridType: 'dash',
+						itemCount: 4, //可不填写，配合enableScroll图表拖拽功能使用，x轴单屏显示数据的数量，默认为5个
+						scrollShow: true, //新增是否显示滚动条，默认false
+						scrollAlign: 'left',
+						//scrollBackgroundColor:'#F7F7FF',//可不填写，配合enableScroll图表拖拽功能使用，X轴滚动条背景颜色,默认为 #EFEBEF
+						//scrollColor:'#DEE7F7',//可不填写，配合enableScroll图表拖拽功能使用，X轴滚动条颜色,默认为 #A6A6A6
+					},
+					yAxis: {
+						//disabled:true
+						gridType: 'dash',
+						splitNumber: 8,
+						min: 10,
+						max: 180,
+						format: (val) => {
+							return val.toFixed(0) + '元'
+						} //如不写此方法，Y轴刻度默认保留两位小数
+					},
 					width: _self.cWidth * _self.pixelRatio,
 					height: _self.cHeight * _self.pixelRatio,
-					disablePieStroke: true,
 					dataLabel: true,
+					dataPointShape: true,
+					extra: {
+						lineStyle: 'straight'
+					},
 				});
 			
+			},
+			
+			touchLineA(e) {
+				canvaLineA.scrollStart(e);
+			},
+			moveLineA(e) {
+				canvaLineA.scroll(e);
+			},
+			touchEndLineA(e) {
+				canvaLineA.scrollEnd(e);
+				//下面是toolTip事件，如果滚动后不需要显示，可不填写
+				canvaLineA.showToolTip(e, {
+					format: function(item, category) {
+						return category + ' ' + item.name + ':' + item.data
+					}
+				});
 			},
 		}
 	}

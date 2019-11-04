@@ -129,8 +129,11 @@ var GP
 					return 
 				}
 				if( userName=="admin" && password == "123"){
-					uni.navigateTo({
-						url:"/pages/index/index"
+					// uni.navigateTo({
+					// 	url:"/pages/index/index"
+					// })
+					uni.redirectTo({
+						url:"/pages/index/index"						
 					})
 					// uni.navigateTo()({
 					// 	url:"/pages/index/index"

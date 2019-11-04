@@ -1,14 +1,14 @@
 <template>
 	<view class="page_edu">
 		<view class="page_edu_header">
-			<view class="header">
+			<!-- <view class="header">
 				<image src="/static/icon_main.png" class="btn" @click="program()"></image>
 				<view class="input">
 					<image src="/static/search.png" class="search" @click="search"></image>
 					<input type="text" value="" placeholder="搜索" />
 				</view>
 				<image src="/static/msg.png" class="btn" @click="notic"></image>
-			</view>
+			</view> -->
 			<view class="header_content">
 				<view class="left">
 					<text class="title">{{header.title}}</text>
@@ -91,14 +91,14 @@
 		</view>
 		<view class="mark" @click="program()">
 			<view class="title">下达文号</view>
-			<view class="more" @click="notic()">更多</view>
+			<view class="more" >更多</view>
 		</view>
 		<scroll-view scroll-x="true" class="slider">
 			<template v-for="(it, i) in records">
 				<view class="item" :key="'slider_item_'+i" 
 					:style="{background: it.bg, marginRight: i === records.length - 1 ? '15px' : '0px'}"
 					@click="program()">
-					<view class="item_content" @click="notic()">
+					<view class="item_content" >
 						<view class="title">
 							<text class="first">{{it.title}}</text>
 							<text class="main">{{it.mainTeacher}}</text>
@@ -291,7 +291,9 @@
 		padding-top: var(--status-bar-height);
 		background-color: #0bc99d;
 		width: 100%;
-		height: realSize(415px);
+		padding-top:realSize(30px);
+		// height: realSize(415px);
+		height: realSize(330px);
 
 		.header {
 			display: flex;
@@ -417,11 +419,12 @@
 			}
 		}
 		.map_box{
-			padding: 15px 15px 0;
+			padding: 15px;
 		}
 		.map{
 			width: 100%;
 			height: 40vh;
+			box-shadow: 0px 5px 5px 0px rgba(0,0,0, 0.2);
 		}
 		.menu_swiper{
 			display: flex;

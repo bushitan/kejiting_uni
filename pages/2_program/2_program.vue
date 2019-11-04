@@ -21,7 +21,16 @@
 			    :showBadge="true" :badgeText="array[index]"></uni-list-item>
 			</picker>	
 		</view>
-		<chart-ring></chart-ring>
+		
+		<!-- <chart-ring :num="dataNum" :list="[1,23]" :text="'asd'"></chart-ring> -->
+		<chart-ring :rate="rate" ></chart-ring>
+		
+		<chart-column></chart-column>
+		<chart-line></chart-line>
+		
+		
+		
+		
 		
 		<view class="oa-space_10"></view>
 		<view class="oa-white oa-pd15 ">项目详情</view>
@@ -79,6 +88,14 @@
 				
 				list:[],
 				status:"all",
+				
+				dataNum:{
+					pre:40,
+					ing:30,
+					complete:30,
+				},
+				
+				rate:[30,30,40],
 			};
 		},
 		onLoad(){
@@ -89,7 +106,7 @@
 			 * @method 初始化
 			 */
 			onInit(e){
-				console.log(this.AllData.mapData)
+				// console.log(this.AllData.mapData)
 				this.setData({ 
 					map:{
 						latitude:"22.8171885913",
@@ -106,7 +123,10 @@
 			 */
 			bindPickerChange: function(e) {
 				console.log('picker发送选择改变，携带值为', e.target.value)
-				this.index = e.target.value
+				var value =  e.target.value
+				this.index = value
+				
+				this.setData({rate:this.countryRate[value]})
 			},
 			
 			
