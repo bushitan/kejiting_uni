@@ -138,6 +138,7 @@
 				uni.navigateTo({
 					url:"/pages/5_detail/5_detail?id=" + detailID
 				})
+				
 			},
 			
 			// 点击坐标
@@ -146,6 +147,8 @@
 				uni.navigateTo({
 					url:"/pages/5_detail/5_detail?id=" + e.detail.markerId
 				})
+				
+				
 			},
 			
 			/**

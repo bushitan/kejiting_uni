@@ -173,19 +173,19 @@
 				LineA.series = [
 					{
 						color: "#1890ff",
-						name: "总投资",
+						name: "总投资（亿元）",
 						type: "line",
 						data:[10,100,150]
 					},
 					{
 						color: "red",
-						name: "在研数量",
+						name: "在研数量（个）",
 						type: "line",
 						data:[5,50,100]
 					},
 					{
 						color: "yellow",
-						name: "完成数量",
+						name: "完成数量（个）",
 						type: "line",
 						data:[15,80,80]
 					},
@@ -272,7 +272,8 @@
 						min: 10,
 						max: 180,
 						format: (val) => {
-							return val.toFixed(0) + '元'
+							// return val.toFixed(0) + '元'
+							return val.toFixed(0) 
 						} //如不写此方法，Y轴刻度默认保留两位小数
 					},
 					width: _self.cWidth * _self.pixelRatio,

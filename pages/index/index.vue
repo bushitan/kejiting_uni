@@ -239,8 +239,11 @@
 			// 点击坐标
 			clickMarker(e){
 				console.log(e.detail.markerId)
+				// uni.navigateTo({
+				// 	url:"/pages/5_detail/5_detail?id=" + e.detail.markerId
+				// })
 				uni.navigateTo({
-					url:"/pages/5_detail/5_detail?id=" + e.detail.markerId
+					url:"/pages/2_program/2_program" 
 				})
 			},
 			/**
