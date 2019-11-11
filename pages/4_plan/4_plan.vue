@@ -5,12 +5,17 @@
 			<view class="example-title">项目进度</view>
 		</view> -->
 		<view class="oa-white ">
-		   <picker @change="bindPickerChange" :value="index" :range="array">
+		   <pic<!-- ker @change="bindPickerChange" :value="index" :range="array">
 				<uni-list-item 
 				title="选择区域" 
 				:showArrow="true" 
 			    :showBadge="true" :badgeText="array[index]"></uni-list-item>
-			</picker>	
+			</picker>	 -->
+			
+				<uni-list-item 
+				title="项目进度" 
+				:showArrow="false" 
+				></uni-list-item>
 		</view>
 		
 		<view class="oa-space_10"></view>

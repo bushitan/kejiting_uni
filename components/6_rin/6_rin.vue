@@ -44,7 +44,7 @@
 			rate:{
 				type:Array,
 				default:()=>{
-					return [30,30,40]
+					return [30,3,40]
 				},
 			},
 			
@@ -79,11 +79,11 @@
 				itemCount: 20, //x轴单屏数据密度
 				sliderMax: 50,
 				
-				// rin:{						
-				// 	pre:30,
-				// 	ing:30,
-				// 	complete:40,
-				// }
+				rin:{						
+					pre:30,
+					ing:30,
+					complete:40,
+				}
 			}
 		},
 		
@@ -109,9 +109,9 @@
 				
 				var Ring = {}
 				Ring.series = [
-					{name: "进行中", data: val[0]},
-					{name: "已完成", data: val[1]},
-					{name: "未开始", data: val[2]},
+					{name: "在研数量（个）", data: val[0]},
+					{name: "已完成（个）", data: val[1]},
+					// {name: "未开始", data: val[2]},
 				]
 				 
 				// //自定义文案示例，需设置format字段
@@ -220,9 +220,9 @@
 				
 				// Ring.series = data.Ring.series;
 				Ring.series = [
-					{name: "进行中", data: 30},
-					{name: "已完成", data: 30},
-					{name: "未开始", data: 40},
+					{name: "在研数量（个）", data: 98},
+					{name: "已完成数量（个）", data: 2},
+					// {name: "未开始", data: 40},
 				]
 				 
 				//自定义文案示例，需设置format字段

@@ -6,12 +6,15 @@
 		<view class="qiun-charts">
 			<!--#ifdef MP-ALIPAY -->
 			<canvas canvas-id="canvasLineA" id="canvasLineA" class="charts" :style="{'width':cWidth*pixelRatio+'px','height':cHeight*pixelRatio+'px', 'transform': 'scale('+(1/pixelRatio)+')','margin-left':-cWidth*(pixelRatio-1)/2+'px','margin-top':-cHeight*(pixelRatio-1)/2+'px'}"
-			 disable-scroll=true @touchstart="touchLineA" @touchmove="moveLineA" @touchend="touchEndLineA"></canvas>
+			  @touchstart="touchLineA" @touchmove="moveLineA" @touchend="touchEndLineA" ></canvas>
+			  <!-- disable-scroll=true -->
 			<!-- 使用图表拖拽功能时，建议给canvas增加disable-scroll=true属性，在拖拽时禁止屏幕滚动 -->
 			<!--#endif-->
 			<!--#ifndef MP-ALIPAY -->
-			<canvas canvas-id="canvasLineA" id="canvasLineA" class="charts" disable-scroll=true @touchstart="touchLineA"
-			 @touchmove="moveLineA" @touchend="touchEndLineA"></canvas>
+			<canvas canvas-id="canvasLineA" id="canvasLineA" class="charts"  @touchstart="touchLineA"
+			 @touchmove="moveLineA" @touchend="touchEndLineA" ></canvas>
+			<!-- disable-scroll=true -->
+			 
 			<!-- 使用图表拖拽功能时，建议给canvas增加disable-scroll=true属性，在拖拽时禁止屏幕滚动 -->
 			<!--#endif-->
 		</view>
@@ -169,25 +172,26 @@
 				// LineA.categories = data.LineA.categories;
 				// LineA.series = data.LineA.series;
 				
+				
 				LineA.categories = ["2017","2018","2019"]
 				LineA.series = [
 					{
 						color: "#1890ff",
 						name: "总投资（亿元）",
 						type: "line",
-						data:[10,100,150]
+						data:[32.24808,   38.59617 , 2.2557]
 					},
 					{
 						color: "red",
 						name: "在研数量（个）",
 						type: "line",
-						data:[5,50,100]
+						data:[51,93,98]
 					},
 					{
 						color: "yellow",
 						name: "完成数量（个）",
 						type: "line",
-						data:[15,80,80]
+						data:[2,2,2,]
 					},
 				]
 				

@@ -13,14 +13,20 @@
 		<!-- <view class="oa-node ">			
 			<tabbar :list="tabBars" @ontabtap="clickTab"></tabbar>
 		</view> -->
-		<view class="oa-white ">
+		
+		<!-- 暂时屏蔽 -->
+		<!-- <view class="oa-white ">
 		   <picker @change="bindPickerChange" :value="index" :range="array">
 				<uni-list-item 
 				title="选择区域" 
-				:showArrow="true" 
+				
 			    :showBadge="true" :badgeText="array[index]"></uni-list-item>
 			</picker>	
-		</view>
+		</view> -->
+		<uni-list-item  class="oa-white "
+			:showArrow="false" 
+			title="统计信息" 
+		></uni-list-item>
 		
 		<!-- <chart-ring :num="dataNum" :list="[1,23]" :text="'asd'"></chart-ring> -->
 		<chart-ring :rate="rate" ></chart-ring>
@@ -95,7 +101,7 @@
 					complete:30,
 				},
 				
-				rate:[30,30,40],
+				rate:[2,98],
 			};
 		},
 		onLoad(){

@@ -1,14 +1,93 @@
 <template>
 	<view>
 		
-		<view class="oa-white oa-pd15">
-			<view class="example-title">项目详情</view>
+		<!-- 顶部选项卡 -->
+		<view class="oa-node ">			
+			<uni-segmented-control 
+				:current="current" 
+				:values="tabList" 
+				style-type="text" 
+				@clickItem="onClickItem"
+			/>
 		</view>
 		
-		<view class="oa-white oa-pd15">		
+		<!-- <view class="oa-white oa-pd15">
+			<view class="example-title">项目详情</view>
+		</view> -->
+		
+		
+		<view class="oa-white oa-pd15" v-show="current == 0">		
 			<z-table :tableData="tableData" :columns="columns" :stickSide="true"></z-table>	
 		</view>
 		
+		
+		<view class="oa-white " v-show="current == 1">		
+			<view class="oa-white oa-pd15 title">
+				<view class="example-title">2019年10月完成情况</view>
+			</view>
+										
+			<view class="oa-node oa-pd15 ">
+				<xx-mark text="进度概况" type="ing"></xx-mark>
+			</view>
+			<view class="oa-node ">
+				<uni-list>
+					<uni-list-item  :showText="true" title="本月完成内容"  :badge-text="progress.ttt" :showArrow="false"/>
+					<uni-list-item :showText="true" title="工作量占比"   :badge-text="progress.ttt" :showArrow="false"/>
+					<uni-list-item :showText="true" title="考核指标"   :badge-text="progress.ttt" :showArrow="false" />
+					<uni-list-item :showText="true" title="资助经费"   :badge-text="progress.ttt" :showArrow="false" />
+					<uni-list-item :showText="true" title="配套资金"   :badge-text="progress.ttt" :showArrow="false" />
+					<uni-list-item :showText="true" title="配套内容"  :badge-text="progress.ttt" :showArrow="false"   />
+					<uni-list-item :showText="true" title="总体进度"  :badge-text="progress.ttt" :showArrow="false"  />
+					<uni-list-item :showText="true" title="存在的问题"   :badge-text="progress.ttt" :showArrow="false" />
+				</uni-list>
+			</view>
+			
+			<view class="oa-node oa-pd15 ">
+				<xx-mark text="论文"  type="close"></xx-mark>
+			</view>
+			<view class="oa-node ">
+				<uni-list>
+					<uni-list-item :showText="true" title="专著、论文名称"  :badge-text="progress.ttt" :showArrow="false"  />
+					<uni-list-item :showText="true" title="完成人"  :badge-text="progress.ttt" :showArrow="false" />
+					<uni-list-item :showText="true" title="申请人排位"  :badge-text="progress.ttt" :showArrow="false"  />
+					<uni-list-item :showText="true" title="发表时间"   :badge-text="progress.ttt" :showArrow="false" />
+					<uni-list-item :showText="true" title="收录类别"    :badge-text="progress.ttt" :showArrow="false"/>
+					<uni-list-item :showText="true" title="被引用次数"  :badge-text="progress.ttt" :showArrow="false"  />
+					<uni-list-item :showText="true" title="有关说明"   :badge-text="progress.ttt" :showArrow="false" />
+				</uni-list>
+			</view>		
+
+			<view class="oa-node oa-pd15 ">
+				<xx-mark text="成果" type="complete"></xx-mark>
+			</view>
+			<view class="oa-node ">
+				<uni-list>
+					<uni-list-item :showText="true" title="成果名称"  :badge-text="progress.ttt" :showArrow="false"  />
+					<uni-list-item :showText="true" title="完成人"  :badge-text="progress.ttt" :showArrow="false" />
+					<uni-list-item :showText="true" title="申请人排位"  :badge-text="progress.ttt" :showArrow="false"  />
+					<uni-list-item :showText="true" title="获奖时间"   :badge-text="progress.ttt" :showArrow="false" />
+					<uni-list-item :showText="true" title="奖励类别"    :badge-text="progress.ttt" :showArrow="false"/>
+					<uni-list-item :showText="true" title="有关说明"   :badge-text="progress.ttt" :showArrow="false" />
+				</uni-list>
+			</view>
+			
+			<view class="oa-node oa-pd15 ">
+				<xx-mark text="专利"></xx-mark>
+			</view>
+			<view class="oa-node ">
+				<uni-list>
+					<uni-list-item :showText="true" title="专利名称"  :badge-text="progress.ttt" :showArrow="false"  />
+					<uni-list-item :showText="true" title="专利编码"  :badge-text="progress.ttt" :showArrow="false" />
+					<uni-list-item :showText="true" title="完成人"  :badge-text="progress.ttt" :showArrow="false"  />
+					<uni-list-item :showText="true" title="专利类型"   :badge-text="progress.ttt" :showArrow="false" />
+					<uni-list-item :showText="true" title="完成时间"    :badge-text="progress.ttt" :showArrow="false"/>
+					<uni-list-item :showText="true" title="有关说明"   :badge-text="progress.ttt" :showArrow="false" />
+				</uni-list>
+			</view>
+			
+								
+
+		</view>
 		
 		<!-- <uni-list>
 			<uni-list-item 
@@ -40,21 +119,15 @@
 							
 				//顶部tab选项卡
 				current: 0,
-				tabBars: [
-					{
-						name: '督办',
-						id: 'tuijian'
-					}, {
-						name: '通报',
-						id: 'tiyu'
-					}, {
-						name: '通知',
-						id: 'redian'
-					},
-				],
+				tabList:['项目详情','实施进度'],
+			
+				
 				list:[],
 				status:"all",
 				
+				progress:{
+					ttt:"",
+				},
 											
 
 							// 表格
@@ -63,7 +136,7 @@
 				{title:"项目名称",content:" "},
 				{title:"承担单位名称",content:" "},
 				{title:"负责人",content:" "},
-				{title:"联系电话",content:" "},
+				// {title:"联系电话",content:" "},
 				{title:"邮箱",content:" "},
 				{title:"项目编号",content:" "},
 				{title:"责任处室",content:" "},
@@ -111,9 +184,11 @@
 				var currentProgram = programList[id]
 				
 				for( var i=0; i<currentTitle.length; i++){
+					if ( currentTitle[i] == '联系电话')
+						continue
 					tableData.push({
 							title:currentTitle[i], 
-							 content:currentProgram[i]
+							content:currentProgram[i]
 					})
 				}
 				this.setData({
@@ -137,6 +212,19 @@
 				// 	list:programList[id]
 				// })
 				// this.setData({ list : this.AllData.noticeNews })
+			},
+			
+			/**
+			 * @method 切换顶部选项卡
+			 */
+			onClickItem(index) {
+				console.log(index)
+				// debugger
+				if (this.current !== index) {
+					this.setData({
+						current:index
+					})
+				}
 			},
 			
 			/**
@@ -176,5 +264,9 @@
 </script>
 
 <style>
-
+	.title{
+		text-align: center;
+		font-size: 13pt;
+		font-weight: bold;
+	}
 </style>

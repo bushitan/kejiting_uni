@@ -8,10 +8,12 @@ import uniIcon from '@/components/uni-icon/uni-icon.vue'
 import uniList from '@/components/uni-list/uni-list.vue'
 import uniListItem from '@/components/uni-list-item/uni-list-item.vue'
 import uniBadge from '@/components/uni-badge/uni-badge.vue'
+import uniSegmentedControl from '@/components/uni-segmented-control/uni-segmented-control.vue'
 Vue.component('uni-icon', uniIcon)
 Vue.component('uni-list', uniList)
 Vue.component('uni-list-item', uniListItem)
 Vue.component('uni-badge', uniBadge)
+Vue.component('uni-segmented-control', uniSegmentedControl)  // 顶部选项卡
 
 import tabbar from '@/components/4_tabbar/4_tabbar.vue'   //菜单栏
 import mark from '@/components/5_mark/5_mark.vue'   //菜单栏
@@ -19,6 +21,9 @@ import commonTask from '@/components/common_task/common_task.vue'   //任务node
 Vue.component('tabbar', tabbar)
 Vue.component('mark', mark)
 Vue.component('common-task', commonTask)
+
+import xxMark from '@/components/base_7_mark/mark.vue'
+Vue.component('xx-mark', xxMark)
 
 
 //表格

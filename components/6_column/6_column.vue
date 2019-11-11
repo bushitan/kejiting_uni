@@ -6,11 +6,12 @@
 		<view class="qiun-charts">
 			<!--#ifdef MP-ALIPAY -->
 			<canvas canvas-id="canvasMix" id="canvasMix" class="charts" :style="{'width':cWidth*pixelRatio+'px','height':cHeight*pixelRatio+'px', 'transform': 'scale('+(1/pixelRatio)+')','margin-left':-cWidth*(pixelRatio-1)/2+'px','margin-top':-cHeight*(pixelRatio-1)/2+'px'}"
-			 disable-scroll=true @touchstart="touchMix" @touchmove="moveMix" @touchend="touchEndMix"></canvas>
+			 @touchstart="touchMix" @touchmove="moveMix" @touchend="touchEndMix"></canvas>
 			<!--#endif-->
 			<!--#ifndef MP-ALIPAY -->
-			<canvas canvas-id="canvasMix" id="canvasMix" class="charts" disable-scroll=true @touchstart="touchMix" @touchmove="moveMix"
+			<canvas canvas-id="canvasMix" id="canvasMix" class="charts"  @touchstart="touchMix" @touchmove="moveMix"
 			 @touchend="touchEndMix"></canvas>
+			 <!-- disable-scroll=true -->
 			<!--#endif-->
 		</view>
 	</view>
@@ -207,24 +208,49 @@
 				
 				// Mix.categories = data.Mix.categories;
 				// Mix.series = data.Mix.series;
+				
+				// 地市	数量（单位：个）	资助经费（单位亿元）
+				// 	百色市	
+				// 	北海市	3	0.265
+				// 	崇左市	3	0.245
+				// 	桂林市	21	2.058
+				// 	河池市	
+				// 	贺州市	4	0.335
+				// 	柳州市	18	2.429
+				// 	南宁市	40	4.86
+				// 	市辖区	1	0.12
+				// 	梧州市	2	0.11
+				// 	新城区	3	0.46
+				// 	玉林市   2  0.853
+				// 	总计	99	11.985
+
 			
-				Mix.categories = [  '南宁', '桂林','柳州', '贺州', 
-					'河池','百色','崇左','来宾',
-					'钦州','北海','防城港',
-					'贵港','玉林','梧州',
+				Mix.categories = [  '南宁', '市辖区', '桂林','柳州', '贺州', 
+					'河池','百色','崇左',
+					// '来宾','钦州' ,'防城港','贵港',
+					'北海','玉林','梧州',
 				]
 				Mix.series = [
 					{
 						color: "#1890ff",
 						name: "数量（项）",
 						type: "column",
-						data:[10,100,150,51,76,34,70,100,65,87,89,102,5,59],
+						data:[40,1,21,18,4,
+							1, 1 ,1.3,
+							3, 2,1,	
+						],
 					},
 					{
 						color: "red",
 						name: "资助金费（亿元）",
 						type: "column",
-						data:[50,50,100,45,87,23,161,78,34,98,23,54,67,89],
+						data:[4.86,0.12,2.058, 2.429, 0.335,  
+							0.15,0.1,0.245,
+							0.265,0.853,0.11
+							
+										
+										// 100,45,87,23,161,78,34,98,23,54,67,89
+						],
 					},
 				]
 				
@@ -272,8 +298,8 @@
 					yAxis: {
 						gridType: 'dash',
 						splitNumber: 5,
-						min: 10,
-						max: 180
+						min: 0,
+						max: 50
 					},
 					width: _self.cWidth * _self.pixelRatio,
 					height: _self.cHeight * _self.pixelRatio,
