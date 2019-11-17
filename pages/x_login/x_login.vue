@@ -2,9 +2,22 @@
     <view class="container">
 		
 
-		<view class="sys_title">
-			APP登陆
+		<!-- <view class="sys_title">
+			广西科技项目管理APP
+		</view> -->
+		<view class="page_edu_header">
+			<view class="header_content">
+				<view class="left">
+					<text class="title">{{header.title}}</text>
+					<text class="sub_title">{{header.subTitle}}</text>
+					<!-- <text class="btn" @click="plan()">{{header.btn}}</text> -->
+				</view>
+				<view>
+					<image src="/static/right.png" style="width: 131px;height: 122px;"></image>
+				</view>
+			</view>
 		</view>
+		
 		
 
 		<form @submit="formSubmit" >
@@ -48,7 +61,7 @@
 
 <style src="./x_login.css" ></style>
 
-<style lang="scss">
+<style lang="scss" >
 
 
 	/*********登陆按钮**********/
@@ -66,5 +79,94 @@
 		// background-color:$sys-color-base !important;
 		// color:#fff !important;
 		font-size: 11pt !important;
+	}
+	
+	
+	.page_edu_header {
+		padding-top: var(--status-bar-height);
+		background-color: #0bc99d;
+		width: 100%;
+		padding-top:realSize(30px);
+		// height: realSize(415px);
+		height: realSize(330px);
+	
+		.header {
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			padding: realSize(20px);
+	
+			.btn {
+				width: realSize(36px);
+				height: realSize(30px);
+			}
+	
+			.input {
+				height: realSize(59px);
+				width: 100%;
+				margin-left: realSize(20px);
+				margin-right: realSize(20px);
+				
+				background: rgba(255, 255, 255, 1);
+				border-radius: realSize(30px);
+				display: flex;
+				flex-direction: row;
+				align-items: center;
+	
+				.search {
+					width: realSize(30px);
+					height: realSize(30px);
+					margin-left: realSize(20px);
+					margin-right: realSize(20px);
+				}
+			}
+		}
+	
+		.header_content {
+			display: flex;
+			flex-direction: row;
+	
+			.left {
+				display: flex;
+				flex-direction: column;
+				width: 57%;
+				margin-top: 10px;
+				margin-left: 15px;
+				margin-right: 15px;
+				padding:15px 0;
+	
+				.title {
+					width: realSize(419px);
+					height: realSize(59px);
+					font-size: 17pt;
+					font-weight: bold;
+					color: rgba(255, 255, 255, 1);
+				}
+	
+				.sub_title {
+					margin-top: 3px;
+					font-size: 11pt;
+					font-weight: 400;
+					color: rgba(255, 255, 255, 1);
+	
+					background: linear-gradient(0deg, rgba(120, 255, 224, 1) 0%, rgba(255, 255, 255, 1) 100%);
+					-webkit-background-clip: text;
+					-webkit-text-fill-color: transparent;
+				}
+	
+				.btn {
+					margin-top: 3px;
+					width: realSize(198px);
+					height: realSize(60px);
+					background: linear-gradient(-30deg, rgba(252, 135, 29, 1), rgba(246, 185, 9, 1));
+					box-shadow: 0px 4px 10px 0px rgba(255, 121, 0, 0.5);
+					border-radius: realSize(30px);
+					color: rgba(255, 255, 255, 1);
+					display: flex;
+					align-items: center;
+					justify-content: center;
+				}
+			}
+		}
 	}
 </style>

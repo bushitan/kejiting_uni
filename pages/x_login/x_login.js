@@ -12,6 +12,13 @@ var GP
         // },
         data() {
             return {
+				header:{
+					title:"广西科技项目管理APP",
+					subTitle:"三百两千项目",
+					btn:"项目大数据",
+					
+				},
+				
                 providerList: [],
                 hasProvider: false,
                 account: '',

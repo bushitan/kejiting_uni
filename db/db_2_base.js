@@ -6,8 +6,8 @@ class dbBase{
 	KEY_UUID = "uuid"
 	KEY_TOKEN = "token"
 	
-	// URL = "http://106.13.100.67/"
-	URL = "http://127.0.0.1:9000/"
+	URL = "http://106.13.100.67/"
+	// URL = "http://127.0.0.1:9000/"
 	
 	
 	constructor(){}
