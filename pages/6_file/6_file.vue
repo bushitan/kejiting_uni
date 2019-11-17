@@ -4,29 +4,27 @@
 		<!-- <view class="oa-white oa-pd15">
 			<view class="example-title">项目进度</view>
 		</view> -->
-
-		
-		<view class="oa-space_10"></view>
-		<chart-ring :rate="rate" ></chart-ring>
-		
-		<chart-column></chart-column>
-		<chart-line></chart-line>
-		
-		<view class="oa-space_10"></view>
+		<!-- <view class="oa-space_10"></view> -->
+	<!-- 	<view class="oa-white ">
+		   <picker @change="bindPickerChange" :value="index" :range="array">
+				<uni-list-item 
+				title="选择文号" 
+				:showArrow="true" 
+			    :showBadge="true" :badgeText="array[index]"></uni-list-item>
+			</picker>	 
+		</view> -->
 		<view class="oa-white ">
 		   <picker @change="bindPickerChange" :value="index" :range="array">
 				<uni-list-item 
-				title="项目详情(选择区域)" 
+				title="选择文号" 
 				:showArrow="true" 
 			    :showBadge="true" :badgeText="array[index]"></uni-list-item>
 			</picker>	 
 		</view>
-		<!-- <view class="oa-white oa-pd15 ">项目详情</view> -->
 		<uni-list>
 			<view class="oa-node oa-pd15 oa-white oa-line_bottom" v-for="(item,key) in list">
 				
 				<view class="" @click="clickDetail(item.id)">
-					<!-- {{item.id}} -->
 					<common-task
 						status="1"
 						:title="item.projectName"
@@ -61,9 +59,7 @@
 				
 			</view>	
 		</uni-list>
-		<!-- <uni-load-more v-if="list" status="more"></uni-load-more> -->
-		<uni-load-more status="noMore"></uni-load-more>
-		<view style="height:60px"></view>
+		
 	</view>
 </template>
 
@@ -71,10 +67,14 @@
 	export default {
 		data() {
 			return {
-				array: [ '全部', '南宁', '桂林','柳州', '贺州',
-					'河池','百色','崇左','来宾',
-					'钦州','北海','防城港',
-					'贵港','玉林','梧州',
+				array: [ 
+					"全部",
+					"桂科创字[2017]25号",
+					"桂科创字[2017]25号",
+					"桂科计字[2017]204号",
+					"桂科计字[2018]118号",
+					"桂科计字[2018]242号",
+					"桂科计字[2019]46号",
 				],
 				index: 0,
 				
@@ -95,9 +95,14 @@
 				
 				rate:[30,30,40],
 				
+				fileName:"", // 下达文号
+				
 			};
 		},
-		onLoad(){
+		onLoad(option){
+			this.setData({
+				fileName:option.fileName || ''
+			})
 			this.onInit()
 		},
 		methods:{
@@ -105,12 +110,15 @@
 			 * @method 初始化
 			 */
 			onInit(e){
-				// this.setData({ 
-				// 	// list : this.AllData.program ,
-				// 	
-				// 	// list :this.AllData.programIDList
-				// })
+				var fileName = this.$data.fileName
+				if(fileName != "")
+					for(var i=0;i<this.$data.array.length;i++){
+						if(this.$data.array[i] == fileName)
+							this.setData({index:i})
+					}
+				
 				this.$db.ProjectGetList({
+					kw:fileName,
 					pageIndex:1,
 					pageSize:100,
 				}).then(res=>{
@@ -146,13 +154,7 @@
 					})
 				})
 				
-				
-				// this.index = value
-				
 				// this.setData({rate:this.countryRate[value]})
-				
-				
-				
 			},
 			
 			

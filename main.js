@@ -3,6 +3,12 @@ import App from './App'
 
 Vue.config.productionTip = false
 
+import DB from './db/db.js'
+import CODE from './db/code.js'
+Vue.prototype.$db = DB;
+Vue.prototype.$CODE = CODE;
+
+
 
 import uniIcon from '@/components/uni-icon/uni-icon.vue'
 import uniList from '@/components/uni-list/uni-list.vue'
@@ -15,11 +21,14 @@ Vue.component('uni-list-item', uniListItem)
 Vue.component('uni-badge', uniBadge)
 Vue.component('uni-segmented-control', uniSegmentedControl)  // 顶部选项卡
 
+import uniLoadMore from '@/components/uni-load-more/uni-load-more.vue' // 加载更多
+Vue.component('uni-load-more', uniLoadMore)
+
 import tabbar from '@/components/4_tabbar/4_tabbar.vue'   //菜单栏
-import mark from '@/components/5_mark/5_mark.vue'   //菜单栏
+import FiveMark from '@/components/5_mark/5_mark.vue'   //菜单栏
 import commonTask from '@/components/common_task/common_task.vue'   //任务node
 Vue.component('tabbar', tabbar)
-Vue.component('mark', mark)
+Vue.component('mark', FiveMark)
 Vue.component('common-task', commonTask)
 
 import xxMark from '@/components/base_7_mark/mark.vue'

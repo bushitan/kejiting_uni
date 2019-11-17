@@ -79,13 +79,39 @@
 			this.arcbarWidth = uni.upx2px(24);
 			this.gaugeWidth = uni.upx2px(30);
 			
-			this.getServerData();
+			this.onInit()
+			// this.getServerData();
 		},
 		methods:{
 			onInit(){
-				let Ring = {
+				
+				let LineA = {
+					categories: [],
 					series: []
 				};
+				LineA.categories = ["2017","2018","2019"]
+				LineA.series = [
+					{
+						color: "#1890ff",
+						name: "总投资（亿元）",
+						type: "line",
+						data:[32.24808,   38.59617 , 2.2557]
+					},
+					{
+						color: "red",
+						name: "在研数量（个）",
+						type: "line",
+						data:[51,93,98]
+					},
+					{
+						color: "yellow",
+						name: "完成数量（个）",
+						type: "line",
+						data:[2,2,2,]
+					},
+				]
+				this.showLineA("canvasLineA", LineA);
+				
 			},
 			getServerData() {
 				uni.showLoading({

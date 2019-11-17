@@ -23,10 +23,10 @@
 			    :showBadge="true" :badgeText="array[index]"></uni-list-item>
 			</picker>	
 		</view> -->
-		<uni-list-item  class="oa-white "
+	<!-- 	<uni-list-item  class="oa-white "
 			:showArrow="false" 
 			title="统计信息" 
-		></uni-list-item>
+		></uni-list-item> -->
 		
 		<!-- <chart-ring :num="dataNum" :list="[1,23]" :text="'asd'"></chart-ring> -->
 		<chart-ring :rate="rate" ></chart-ring>
@@ -39,22 +39,44 @@
 		
 		
 		<view class="oa-space_10"></view>
-		<view class="oa-white oa-pd15 ">项目详情</view>
+		<view class="oa-white ">
+		   <picker @change="bindPickerChange" :value="index" :range="array">
+				<uni-list-item 
+				title="项目详情(选择区域)"
+				:showArrow="true" 
+			    :showBadge="true" :badgeText="array[index]"></uni-list-item>
+			</picker>	 
+		</view>
+		<!-- <view class="oa-white oa-pd15 ">项目详情</view> -->
 		<uni-list>
+			<!-- fileReleaseNumber: "桂科计字[2018]242号"
+				id: "0b65425e0ec64a98b275357d03cb66aa"
+				leader: "柏宏"
+				projectName: "高品质乘用车（MPV）整车及关键技术开发与应用"
+				projectNameInScene: "高品质MPV（多用途乘用车）整车及关键技术开发与应用"
+				projectNo: "2018AA18012"
+				projectProgress: "完成60%"
+				registerAddr: "柳州市"
+				sort: "1"
+				underTakeWorkName: "上汽通用五菱汽车股份有限公司"
+			-->			
 			<view class="oa-node oa-pd15 oa-white oa-line_bottom" v-for="(item,key) in list">
-				<view class="" @click="clickDetail(item[0])">
+				<view class="" @click="clickDetail(item.id)">
 					<common-task
 						status="1"
-						:title="item[1]"
-						:companyName="item[2]"
-						:leader="item[3]"	
-						:des="item[5]"		
+						:title="item.projectName"
+						:companyName="item.underTakeWorkName"
+						:leader="item.leader"	
+						:des="item.fileReleaseNumber"		
 					></common-task>
 				</view>				
 			</view>	
 		</uni-list>
 		
-		<view style="height:30px"></view>
+		<!-- <uni-load-more v-if="isMore" status="more"></uni-load-more> -->
+		
+		<uni-load-more status="noMore"></uni-load-more>
+		<view style="height:60px"></view>
 	</view>
 </template>
 
@@ -120,8 +142,19 @@
 						scale:7,		
 						markers:this.AllData.mapData,	
 					},
-					list :this.AllData.programIDList
+					// list :this.AllData.programIDList
 				})
+				
+				this.$db.ProjectGetList({
+					pageIndex:1,
+					pageSize:100,
+				}).then(res=>{
+					console.log(res)
+					this.setData({
+						list:res.data
+					})
+				})
+				
 			},
 			
 			/**
@@ -129,10 +162,26 @@
 			 */
 			bindPickerChange: function(e) {
 				console.log('picker发送选择改变，携带值为', e.target.value)
-				var value =  e.target.value
-				this.index = value
+				var value = e.target.value
+				var kw = this.$data.array[value]
+				if(value == 0)
+					kw = ""
+				this.setData({
+					index:value
+				})
 				
-				this.setData({rate:this.countryRate[value]})
+				this.$db.ProjectGetList({
+					kw:kw,
+					pageIndex:1,
+					pageSize:100,
+				}).then(res=>{
+					console.log(res)
+					this.setData({
+						list:res.data
+					})
+				})
+				
+				// this.setData({rate:this.countryRate[value]})
 			},
 			
 			

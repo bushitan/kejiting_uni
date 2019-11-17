@@ -89,7 +89,7 @@
 				<image src="/static/tag.png" class="bg"></image>
 			</view> -->
 		</view>
-		<view class="mark" @click="program()">
+		<view class="mark" @click="toFile('')">
 			<view class="title">下达文号</view>
 			<view class="more" >更多</view>
 		</view>
@@ -97,7 +97,7 @@
 			<template v-for="(it, i) in records">
 				<view class="item" :key="'slider_item_'+i" 
 					:style="{background: it.bg, marginRight: i === records.length - 1 ? '15px' : '0px'}"
-					@click="program()">
+					@click="toFile(it.title)">
 					<view class="item_content" >
 						<view class="title">
 							<text class="first">{{it.title}}</text>
@@ -270,6 +270,10 @@
 			 */
 			plan(){
 				this.nav("/pages/4_plan/4_plan")
+			},
+			
+			toFile(fileName){
+				this.nav("/pages/6_file/6_file?fileName=" + fileName)
 			},
 		}
 	}

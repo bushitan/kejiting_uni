@@ -29,8 +29,59 @@ var GP
 			// this.toMain()
 			// this.checkStatus()
 			// this.getCode()
+			this.test()
 		},
         methods: {
+			
+			/**
+			 * @method 测试页面
+			 */
+			test(){
+				
+			/**
+			 * fileReleaseNumber: "桂科计字[2018]242号"
+				id: "0b65425e0ec64a98b275357d03cb66aa"
+				leader: "柏宏"
+				projectName: "高品质乘用车（MPV）整车及关键技术开发与应用"
+				projectNameInScene: "高品质MPV（多用途乘用车）整车及关键技术开发与应用"
+				projectNo: "2018AA18012"
+				projectProgress: "完成60%"
+				registerAddr: "柳州市"
+				sort: "1"
+				underTakeWorkName: "上汽通用五菱汽车股份有限公司"
+			 */
+			this.$db.ProjectGetList({
+				kw:"柳州",
+				pageIndex:1,
+				pageSize:20,
+			}).then(res=>{
+				console.log(res)
+			})
+			
+			
+			
+			/**
+			 */
+			this.$db.ProjectGetDetail({
+				id:"0b65425e0ec64a98b275357d03cb66aa",
+			}).then(res=>{
+				console.log(res)
+			})
+				
+			/**
+			 */
+			this.$db.ProjectGetProgress({
+				id:"0b65425e0ec64a98b275357d03cb66aa",
+				projectNum:"桂科计字[2018]242号",
+			}).then(res=>{
+				console.log(res)
+			})
+				
+				
+				
+				
+			},
+			
 			/**
 			 * @method 6.4我的任务--获取项目实施方式 DicCode="ExecutionType"
 			 *         6.5我的任务--获取项目实施方式 DicCode="ProjectType"

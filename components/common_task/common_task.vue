@@ -9,12 +9,12 @@
 					<view v-else class="status close">{{title}}</view>
 				</text> -->
 				
-				<text class='uni-text program_title'>项目名称:{{title}}</text>
-				<text class='uni-text'><label>公司名称</label>:{{companyName}}</text>
-				<text class='uni-text'><label>负责人</label>:{{leader}}</text>
-				<text class='uni-text' v-show="jingji!=''"><label>经济指标</label>:{{jingji}}</text>
-				<text class='uni-text' v-show="jishu!=''"><label>技术指标</label>:{{jishu}}</text>
-				<text class='uni-text' v-show="des!=''"><label>下达文号</label>:{{des}}</text>
+				<view class='uni-text program_title'>项目名称:{{title}}</view>
+				<view class='uni-text'><label>公司名称</label>:{{companyName}}</view>
+				<view class='uni-text'><label>负责人</label>:{{leader}}</view>
+				<view class='uni-text' v-show="jingji!=''"><label>经济指标</label>:{{jingji}}</view>
+				<view class='uni-text' v-show="jishu!=''"><label>技术指标</label>:{{jishu}}</view>
+				<view class='uni-text' v-show="des!=''"><label>下达文号</label>:{{des}}</view>
 				
 		<!-- 		<view class="uni-text-small uni-ellipsis  ">
 					<view class="date dpre">项目申报时间:{{date}}</view>
@@ -22,7 +22,8 @@
 				
 			</view>
 			<view class="uni-triplex-right">
-				<text class="uni-h5 name">{{sn}}</text>
+				<view class="uni-h5 name">{{sn}}</view>
+				<view class="uni-h5 name ding">{{projectStatus}}</view>
 			</view>
 		</view>
     </view>
@@ -83,33 +84,16 @@
 				type:[Number,String],
 				default:""
 			},
-			
-			
-			
-			
-			
-			
-			
-			username:{
-				type:String,
-				default:"用户名称"
-			},
-			planStartTime:{
+			//  项目状态.
+			projectStatus:{
 				type:[Number,String],
-				default:"2019-06-15"
+				default:""
 			},
-			planEndTime:{
-				type:[Number,String],
-				default:"2019-06-15"
-			},
-			realStartTime:{
-				type:[Number,String],
-				default:"2019-06-15"
-			},
-			realEndTime:{
-				type:[Number,String],
-				defualt:"2019-06-15"
-			},
+			
+			
+			
+			
+			
 		},
     }
 </script>
@@ -161,16 +145,19 @@
 		border-radius: 5px;
 	}	
 	.dpre{background-color: rgba(225,225,225,0.6);}
-	.ding{background-color: rgba(0,204,102,0.6);color: #fff;}
+	.ding{background-color: rgba(0,204,102,0.6) !important;color: #fff;}
 	.dcomplete{background-color: rgba(51,153,255,0.6);color: #fff;}
 	.dclose{background-color: rgba(255,103,0,0.6);color: #fff; }
 	
+	
+	
 	.name{;
 		background-color: #cce6ff;
-		margin-top: 2px;
+		margin: 2px 0 5px 0;
 		/* padding:2px 15PX 2px 15px ; */
 		text-align: center;
 		font-size: 9pt;
+		
 		/* padding-right:10px ; */
 	}
 </style>

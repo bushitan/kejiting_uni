@@ -1,0 +1,58 @@
+﻿
+拥有详情项目的id
+
+21622bf088ef4e0da70c6ff5c4a4a2f4
+dbdccc7fe6f64b339eb832883bc5c00c
+80a49c73d4a943cfb01a362ce7da3066
+501ba9b313e24969a29ff003626ed3fc
+
+成果
+ff8883be22d142edab4184650666234d
+
+date
+projectInfos
+patentInfos
+paperInfos
+achievements
+
+
+按项目排序放前边
+21622bf088ef4e0da70c6ff5c4a4a2f4
+
+
+
+constructionIndex: "无"
+contactNumber: "13877220856"
+createTime: "2019-11-17"
+economicIndicators: "相关车型投产后，年产量5万辆以上。整车新增年销售收入超过35亿元，新增利税超过1.5亿元。"
+email: "hong.bo@sgmw.com.cn"
+fileReleaseNumber: "桂科计字[2018]242号"
+flag: false
+funding: "0.07"
+id: "0b65425e0ec64a98b275357d03cb66aa"
+leader: "柏宏"
+leaderWork: "高新处"
+otherIndicators: "知识产权方面：发表国内期刊论文3篇以上，获得发明专利2件，实用新型专利3件，形成企↵业标准4篇以上。"
+overallObjective: "本项目由上汽通用五菱汽车股份有限公司承担，项目开展为了实现整车C-NCAP 5星评价，实现动力性能提升、燃油经济性优化、驾驶性能提升、底盘性能提升，实现高性能绿色热冲压技术，并通过新材料的开发应用，推动车身结构的创新设计，提高整车NVH性能水平，提高整车舒适度，进行多功能乘用车智能化研究及开发，智能化程度达到准L2级别，实现整车功能及服务的网联化，同时基于整车大数据技术，逐步构建智能出行服务体系。"
+projectAllInvestment: "1.2"
+projectApplyTime: "2018/12/26 14:55:14"
+projectApprovalTime: "2018/11/2 9:52:45"
+projectCate: "创新驱动发展专项（预申报类项目正式填报）"
+projectCompletion: "在研"
+projectContractSignTime: "2019/7/5 9:57:22"
+projectEndTime: "2021/12/31 0:00:00"
+projectName: "高品质乘用车（MPV）整车及关键技术开发与应用"
+projectNameInScene: "高品质MPV（多用途乘用车）整车及关键技术开发与应用"
+projectNo: "2018AA18012"
+projectProgress: "完成60%"
+projectReleaseTime: "2018"
+projectStartTime: "2018/11/1 0:00:00"
+projectStatus: "已接收纸质材料"
+registerAddr: "柳州市"
+sort: "1"
+stFunding: "700"
+technicalIndex: "1、研发一款长、宽、高为4750~4850mm、1850~1900mm、1600~1700mm，乘员数6~7位，座椅组合形式5种以上的MPV车型；↵2、整车安全满足C-NCAP 2018版最新规定的五星级评价指标；↵3、整车NVH白车身产品的主要噪声频响函数比宝骏730车型降低2~4dB(A)，悬置基于传递振动力和振动能量的优化在主要频带内较宝骏730车型降低30%左右；↵4、整车轻量化效果比奥德赛车型提升5%以上；↵5、中国智能汽车指数测试达到“优秀”水平，智能登记达到L2级别，实现高速公路发生拥堵时能自动跟随前车前进及横向移动。"
+totalInvestment: "12000"
+underTakeWorkAddr: "广西壮族自治区柳州市柳南区河西路18号"
+underTakeWorkName: "上汽通用五菱汽车股份有限公司"
+updateTime: "2019-11-17"

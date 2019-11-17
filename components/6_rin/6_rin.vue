@@ -97,17 +97,25 @@
 			this.cWidth3 = uni.upx2px(250);
 			this.cHeight3 = uni.upx2px(250);
 			this.arcbarWidth = uni.upx2px(24);
-			this.gaugeWidth = uni.upx2px(30);			
-			this.getServerData();
+			this.gaugeWidth = uni.upx2px(30);	
+					
+			// debugger
+			this.onInit()
+			// this.getServerData();
 		},
 		watch:{		
+			
+			
+			
 			
 			rate(val){
 				console.log(val)
 				
 				// this.setRate(val)
 				
-				var Ring = {}
+				let Ring = {
+					series: []
+				};
 				Ring.series = [
 					{name: "在研数量（个）", data: val[0]},
 					{name: "已完成（个）", data: val[1]},
@@ -115,20 +123,34 @@
 				]
 				 
 				// //自定义文案示例，需设置format字段
-				// for (let i = 0; i < Ring.series.length; i++) {
-				// 	Ring.series[i].format = () => {
-				// 		return Ring.series[i].name + Ring.series[i].data
-				// 	};
-				// }
+				for (let i = 0; i < Ring.series.length; i++) {
+					Ring.series[i].format = () => {
+						return Ring.series[i].name + Ring.series[i].data
+					};
+				}
 				
 				this.showRing("canvasRing", Ring);
 			}
 		},
 		methods:{
 			onInit(){
+				
 				let Ring = {
 					series: []
 				};
+				Ring.series = [
+					{name: "在研数量（个）", data: 98},
+					{name: "已完成数量（个）", data: 2},
+					// {name: "未开始", data: 40},
+				]
+				 
+				// // 自定义文案示例，需设置format字段
+				for (let i = 0; i < Ring.series.length; i++) {
+					Ring.series[i].format = () => {
+						return Ring.series[i].name + Ring.series[i].data
+					};
+				}
+				this.showRing("canvasRing", Ring);
 			},
 			getServerData() {
 				uni.showLoading({
