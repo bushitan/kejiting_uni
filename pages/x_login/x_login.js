@@ -6,6 +6,40 @@
     // import mInput from '../../components/m-input.vue'
 
 var GP 
+
+var ACCOUNT = [
+	{username:"caokh",password:"123456"},
+	{username:"liujh",password:"123456"},
+	{username:"chencs",password:"123456"},
+	{username:"liaowj",password:"123456"},
+	{username:"qianj",password:"123456"},
+	{username:"tangxl",password:"123456"},
+	{username:"wangb",password:"123456"},
+	{username:"liwh",password:"123456"},
+	{username:"xiexk",password:"123456"},
+	{username:"tangld",password:"123456"},
+	{username:"caicl",password:"123456"},
+	{username:"duwh",password:"123456"},
+	{username:"moby",password:"123456"},
+	{username:"mengfg",password:"123456"},
+	{username:"zhangxf",password:"123456"},
+	{username:"chensw",password:"123456"},
+	{username:"huangzb",password:"123456"},
+	{username:"lihh",password:"123456"},
+	{username:"chend",password:"123456"},
+	{username:"songjy",password:"123456"},
+	{username:"wangl",password:"123456"},
+	{username:"yeb",password:"123456"},
+	{username:"changq",password:"123456"},
+	{username:"caiqz",password:"123456"},
+	{username:"kegs",password:"123456"},
+	{username:"huangkl",password:"123456"},
+	{username:"huangsx",password:"123456"},
+	{username:"longg",password:"123456"},
+	{username:"chenwj",password:"123456"},
+	{username:"shim",password:"123456"},
+]
+
     export default {
         // components: {
         //     mInput
@@ -186,7 +220,8 @@ var GP
 					})
 					return 
 				}
-				if( userName=="admin" && password == "123"){
+				// if( userName=="admin" && password == "123"){
+				if( this.checkAccount(userName,password) ){
 					// uni.navigateTo({
 					// 	url:"/pages/index/index"
 					// })
@@ -207,8 +242,20 @@ var GP
 				// this.login(userName,password)
 			
 			},
-			
+					
+			/**
+			 * @method 判断账号密码
+			 */
+			checkAccount(username,password){
+				for (var i = 0 ;i<ACCOUNT.length;i++)
+					if(username == ACCOUNT[i].username && password == ACCOUNT[i].password )
+						return true
+						
+				return false
+			},
         },
+
+		
         onReady() {
             // this.initPosition();
             // this.initProvider();
