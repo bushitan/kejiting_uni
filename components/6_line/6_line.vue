@@ -1,7 +1,7 @@
 <template>
 	<view class="content">
 		<view class="qiun-bg-white qiun-title-bar qiun-common-mt">
-			<view class="qiun-title-dot-light">图三</view>
+			<view class="qiun-title-dot-light">2017-2019项目数量表</view>
 		</view>
 		<view class="qiun-charts">
 			<!--#ifdef MP-ALIPAY -->
