@@ -1,7 +1,7 @@
 <template>
 	<view class="content">
 		<view class="qiun-bg-white qiun-title-bar qiun-common-mt">
-			<view class="qiun-title-dot-light">全区各地市资助金费图</view>
+			<view class="qiun-title-dot-light">全区各地市资助经费图</view>
 		</view>
 		<view class="qiun-charts">
 			<!--#ifdef MP-ALIPAY -->

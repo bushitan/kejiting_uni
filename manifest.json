@@ -73,7 +73,7 @@
         /* 小程序特有相关 */
         "appid" : "",
         "setting" : {
-            "urlCheck" : true
+            "urlCheck" : false
         }
     },
     "h5" : {
@@ -87,6 +87,9 @@
                     "key" : "5KFBZ-OSU6F-SUPJ5-NJPMP-JYMU3-YCBZJ"
                 }
             }
+        },
+        "devServer" : {
+            "https" : false
         }
     }
 }

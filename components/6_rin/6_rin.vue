@@ -1,7 +1,7 @@
 <template>
 	<view class="content">
 		<view class="qiun-bg-white qiun-title-bar qiun-common-mt">
-			<view class="qiun-title-dot-light">完成图</view>
+			<view class="qiun-title-dot-light">全区项目完成图</view>
 		</view>
 		<view class="qiun-charts">
 			<!--#ifdef MP-ALIPAY -->
@@ -134,7 +134,7 @@
 		},
 		methods:{
 			onInit(){
-				
+				debugger
 				let Ring = {
 					series: []
 				};

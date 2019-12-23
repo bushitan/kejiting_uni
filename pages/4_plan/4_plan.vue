@@ -7,8 +7,8 @@
 
 		
 		<view class="oa-space_10"></view>
-		<chart-ring :rate="rate" ></chart-ring>
 		
+		<chart-ring :rate="rate" ></chart-ring>		
 		<chart-column></chart-column>
 		<chart-line></chart-line>
 		
