@@ -29,6 +29,8 @@
 		></uni-list-item> -->
 		
 		<!-- <chart-ring :num="dataNum" :list="[1,23]" :text="'asd'"></chart-ring> -->
+		
+		
 		<chart-ring :rate="rate" ></chart-ring>
 		
 		<chart-column></chart-column>
@@ -39,7 +41,13 @@
 		
 		
 		<view class="oa-space_10"></view>
-		<view class="oa-white ">
+		
+		<view class="more">			
+			<button  type="primary" size="mini" @click="toPlan">查看更多项目</button>
+		</view>
+		
+		
+		<!-- <view class="oa-white ">
 		   <picker @change="bindPickerChange" :value="index" :range="array">
 				<uni-list-item 
 				title="项目详情(选择区域)"
@@ -47,19 +55,7 @@
 			    :showBadge="true" :badgeText="array[index]"></uni-list-item>
 			</picker>	 
 		</view>
-		<!-- <view class="oa-white oa-pd15 ">项目详情</view> -->
 		<uni-list>
-			<!-- fileReleaseNumber: "桂科计字[2018]242号"
-				id: "0b65425e0ec64a98b275357d03cb66aa"
-				leader: "柏宏"
-				projectName: "高品质乘用车（MPV）整车及关键技术开发与应用"
-				projectNameInScene: "高品质MPV（多用途乘用车）整车及关键技术开发与应用"
-				projectNo: "2018AA18012"
-				projectProgress: "完成60%"
-				registerAddr: "柳州市"
-				sort: "1"
-				underTakeWorkName: "上汽通用五菱汽车股份有限公司"
-			-->			
 			<view class="oa-node oa-pd15 oa-white oa-line_bottom" v-for="(item,key) in list">
 				<view class="" @click="clickDetail(item.id)">
 					<common-task
@@ -71,11 +67,11 @@
 					></common-task>
 				</view>				
 			</view>	
-		</uni-list>
+		</uni-list> -->
 		
 		<!-- <uni-load-more v-if="isMore" status="more"></uni-load-more> -->
 		
-		<uni-load-more status="noMore"></uni-load-more>
+		<!-- <uni-load-more status="noMore"></uni-load-more> -->
 		<view style="height:60px"></view>
 	</view>
 </template>
@@ -123,7 +119,7 @@
 					complete:30,
 				},
 				
-				rate:[2,98],
+				rate:[],
 			};
 		},
 		onLoad(){
@@ -144,16 +140,16 @@
 					},
 					// list :this.AllData.programIDList
 				})
-				
-				this.$db.ProjectGetList({
-					pageIndex:1,
-					pageSize:100,
-				}).then(res=>{
-					console.log(res)
-					this.setData({
-						list:res.data
-					})
-				})
+				this.setData({rate:[3,99],})
+				// this.$db.ProjectGetList({
+				// 	pageIndex:1,
+				// 	pageSize:100,
+				// }).then(res=>{
+				// 	console.log(res)
+				// 	this.setData({
+				// 		list:res.data
+				// 	})
+				// })
 				
 			},
 			
@@ -199,11 +195,11 @@
 			// 点击坐标
 			clickMarker(e){
 				console.log(e.detail.markerId)
-				uni.navigateTo({
-					url:"/pages/5_detail/5_detail?id=" + e.detail.markerId
-				})
+				// uni.navigateTo({
+				// 	url:"/pages/5_detail/5_detail?id=" + e.detail.markerId
+				// })
 				
-				
+				this.toPlan()
 			},
 			
 			/**
@@ -239,6 +235,12 @@
 			getNews(){
 				return this.AllData.noticeNews
 			},
+			
+			toPlan(){
+				uni.navigateTo({
+					url:'/pages/4_plan/4_plan'
+				})
+			},
 		},
 		
 	}
@@ -248,5 +250,21 @@
 	.map{
 		width: 100vw;
 		height: 50vh;
+	}
+	.more{
+		/* font-size: 11pt;
+		color: #007AFF; */
+		position: fixed;
+		bottom: 15px;
+		display: flex;
+		left: 0;
+		right: 0;
+		justify-content: center;
+		font-weight: bold;
+		text-align: center;
+		padding: 15px;
+	}
+	page{
+		background-color: #ffffff;
 	}
 </style>

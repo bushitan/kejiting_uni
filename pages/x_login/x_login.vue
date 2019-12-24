@@ -30,7 +30,7 @@
 							<view class="name">账号:</view>
 							<view class="input_content">
 								<input class="input" placeholder-style="input_pla"  
-								value="" placeholder="请输入账号" name="username" />
+								value="caokh" placeholder="请输入账号" name="username" />
 							</view>
 						</view>	
 						<view class="summary">
@@ -38,7 +38,7 @@
 							<view class="input_content">
 								<input class="input" placeholder-style="input_pla"  
 								password="true"
-								value="" placeholder="请输入密码"  name="password"/>
+								value="123456" placeholder="请输入密码"  name="password"/>
 							</view>
 						</view>
 						<view class="footer">

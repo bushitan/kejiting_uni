@@ -1,9 +1,9 @@
 <template>
 	<view class="content">
-		12321
+		<!-- 12321
 		<view class="">324890589jo 
 			
-		</view>
+		</view> -->
 		<view class="mark pre" >{{text}}</view>
 	<!-- 	<view v-if="type == PRE" class="mark pre" >{{text}}</view>
 		<view v-if="type == ING" class="mark ing"  >{{text}}</view>

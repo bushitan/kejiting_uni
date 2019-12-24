@@ -11,6 +11,7 @@
 				:showText="true" 
 				:title="item.title" 
 				:badge-text="item.text" 
+				@click="toDetail(item.url,item.title)"
 			 />
 			
 		</uni-list>
@@ -60,7 +61,31 @@
 			 */
 			onInit(e){
 				this.setData({ list : this.AllData.noticeNews })
+				
+				// this.$db.getMainInfo().then(res=>{
+				// 	// console.log(res)			
+				// 	// this.onInit(res)
+				// 	var swiperList = res.data.swiper_list
+				// 	var articleList = res.data.article_list
+				// 	this.setData({
+				// 		// swiperList:swiperList,
+				// 		list:articleList
+				// 	})
+				// })
 			},
+			
+			toDetail(url,title){
+				url = encodeURIComponent(url)
+				// cover = encodeURIComponent(cover)
+				uni.navigateTo({
+					url:"/pages/article/article?url=" + url + "&title=" + title 
+				})
+			},
+			
+			
+			
+			
+			
 			
 			/**
 			 * @method 点击菜单

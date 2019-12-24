@@ -3,7 +3,8 @@
 		<view class="qiun-bg-white qiun-title-bar qiun-common-mt">
 			<view class="qiun-title-dot-light">2017-2019项目数量表</view>
 		</view>
-		<view class="qiun-charts">
+		<image class="page_image" src="../../static/page_2.png" mode="widthFix" ></image>
+		<view class="qiun-charts" v-show="false">
 			<!--#ifdef MP-ALIPAY -->
 			<canvas canvas-id="canvasLineA" id="canvasLineA" class="charts" :style="{'width':cWidth*pixelRatio+'px','height':cHeight*pixelRatio+'px', 'transform': 'scale('+(1/pixelRatio)+')','margin-left':-cWidth*(pixelRatio-1)/2+'px','margin-top':-cHeight*(pixelRatio-1)/2+'px'}"
 			  @touchstart="touchLineA" @touchmove="moveLineA" @touchend="touchEndLineA" ></canvas>
@@ -378,5 +379,8 @@
 		font-size: 32upx;
 		color: #000000
 	}
-		
+	
+	.page_image{
+		width: 100%;;
+	}	
 </style>

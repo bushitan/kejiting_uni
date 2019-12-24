@@ -377,13 +377,13 @@
 	
 	/* 通用样式 */
 	.qiun-charts {
-		width: 750upx;
-		height: 500upx;
+		width: 730rpx;
+		height: 500rpx;
 		background-color: #FFFFFF;
 	}
 	
 	.charts {
-		width: 750upx;
+		width: 730upx;
 		height: 500upx;
 		background-color: #FFFFFF;
 	}

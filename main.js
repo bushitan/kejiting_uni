@@ -27,9 +27,11 @@ Vue.component('uni-load-more', uniLoadMore)
 import tabbar from '@/components/4_tabbar/4_tabbar.vue'   //菜单栏
 import FiveMark from '@/components/5_mark/5_mark.vue'   //菜单栏
 import commonTask from '@/components/common_task/common_task.vue'   //任务node
+import commonSearch from '@/components/common_search/common_search'   //搜索node
 Vue.component('tabbar', tabbar)
 Vue.component('mark', FiveMark)
 Vue.component('common-task', commonTask)
+Vue.component('common-search', commonSearch)
 
 import xxMark from '@/components/base_7_mark/mark.vue'
 Vue.component('xx-mark', xxMark)

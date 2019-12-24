@@ -76,6 +76,20 @@ class dbSon extends dbFather{
 		})
 	}	
 	
+		
+	// 3 首页信息获取
+	getMainInfo(obj) {
+		return new Promise((resolve, reject) => {
+			this.base({
+				url:"http://202.103.234.34:8000/wx/push/list/", 
+				data:{} ,
+				method:"POST"
+			} )
+			.then(res => resolve( res.data ))
+			.catch(res => reject(res.data))
+		})
+	}
+	
 	
 	
 	

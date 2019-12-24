@@ -8,21 +8,25 @@ module.exports ={
 	"News":[
 		
 		{
-			title: '广西科技项目管理APP顺利上线',
+			title: '我国研发经费投入强度创历史新高',
 			text: '2019-10-15',
+			url:"http://202.103.234.34:8000/searchall/wxarticle?articleId=1950",
 		},		
 		{
-			title: '2019年项目汇报',
-			text: '2019-10-28',
+			title: '高新技术企业认定管理办法',
+			text: '2019-11-28',
+			url:"http://202.103.234.34:8000/searchall/wxarticle?articleId=2072",
 		},		
 		{
-			title: '2018年项目汇报',
-			text: '2019-10-28',
+			title: '2018年我国研发经费支出近2万亿',
+			text: '2019-12-4',
+			url:"http://202.103.234.34:8000/searchall/wxarticle?articleId=2077",
 		},
-		{
-			title: '2017年项目汇报',
-			text: '2019-10-28',
-		}
+		// {
+		// 	title: '“数”说第6届中国—东盟技术转移与创新合作大会成效',
+		// 	text: '2019-10-28',
+		// 	url:"http://202.103.234.34:8000/searchall/wxarticle?articleId=2078",
+		// }
 	],
 	
 	program:[

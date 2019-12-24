@@ -15,6 +15,17 @@
 				<view class='uni-text' v-show="jingji!=''"><label>经济指标</label>:{{jingji}}</view>
 				<view class='uni-text' v-show="jishu!=''"><label>技术指标</label>:{{jishu}}</view>
 				<view class='uni-text' v-show="des!=''"><label>下达文号</label>:{{des}}</view>
+				<view class="" v-if="showRate">
+					<view class="oa-flex_between" >
+						<view class='uni-text rate program_title'>完成进度:</view>
+						<progress :percent='sn.replace("完成","").replace("%","")' show-info stroke-width="3" activeColor="#1abc9c" />
+					</view>
+					<view class="oa-flex_between">
+						<view class='uni-text rate program_title'>时间进度:</view>
+						
+						<progress :percent=' (parseInt(sn.replace("完成","").replace("%","")) - 10 ).toString() ' show-info stroke-width="3" activeColor="#ff6633" />
+					</view>
+				</view>
 				
 		<!-- 		<view class="uni-text-small uni-ellipsis  ">
 					<view class="date dpre">项目申报时间:{{date}}</view>
@@ -22,7 +33,7 @@
 				
 			</view>
 			<view class="uni-triplex-right">
-				<view class="uni-h5 name">{{sn}}</view>
+				<!-- <view class="uni-h5 name">{{sn}}</view> -->
 				<view class="uni-h5 name ding">{{projectStatus}}</view>
 			</view>
 		</view>
@@ -90,6 +101,10 @@
 				default:""
 			},
 			
+			showRate:{
+				type:Boolean,
+				default:false,
+			},
 			
 			
 			
@@ -108,6 +123,9 @@
 	.program_title{
 		font-size: 11pt;
 		font-weight: bold;
+	}
+	.rate{
+		flex : 1 0 80px;
 	}
 	
 	.delete{
