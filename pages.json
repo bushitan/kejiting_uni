@@ -13,12 +13,6 @@
 			}
 		},
 		{
-			"path": "pages/web/web",
-			"style": {
-				"navigationBarTitleText": "广西科技项目管理APP"
-			}
-		},
-		{
 			"path": "pages/index/index",
 			"style": {
 				"navigationBarTitleText": "项目首页",
@@ -28,7 +22,14 @@
 					"titleNView": false
 				}
 			}
-		},{
+		},
+		{
+			"path": "pages/web/web",
+			"style": {
+				"navigationBarTitleText": "广西科技项目管理APP"
+			}
+		},
+		{
             "path" : "pages/1_notic/1_notic",
 			"style": {
 				"navigationBarTitleText": "通知公告"
@@ -58,7 +59,14 @@
             "style": {
             	"navigationBarTitleText": "下达文号"
             }
-        }
+        },{
+			"path": "pages/article/article",
+			"style": {
+				"navigationBarTitleText": "文章详情",
+				"navigationBarTextStyle":"black",
+				"navigationBarBackgroundColor":"#FFFFFF"
+			}
+		}
     ],
 	"globalStyle": {
 		"navigationBarTitleText": "首页",

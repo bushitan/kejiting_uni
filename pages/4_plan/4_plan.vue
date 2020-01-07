@@ -5,14 +5,6 @@
 			<view class="example-title">项目进度</view>
 		</view> -->
 
-		
-		<view class="oa-space_10"></view>
-		
-		<chart-ring :rate="rate" ></chart-ring>		
-		<chart-column></chart-column>
-		<chart-line></chart-line>
-		
-		<view class="oa-space_10"></view>
 		<view class="oa-white ">
 		   <picker @change="bindPickerChange" :value="index" :range="array">
 				<uni-list-item 
@@ -21,6 +13,17 @@
 			    :showBadge="true" :badgeText="array[index]"></uni-list-item>
 			</picker>	 
 		</view>
+		<view class="oa-node oa-pd15 oa-white oa-line_bottom">
+			<common-search @search="search" placeholder="请输入关键字进行查询"></common-search>
+		</view>
+		<view class="oa-space_10"></view>
+		
+<!-- 		<chart-ring :rate="rate" ></chart-ring>		
+		<chart-column></chart-column>
+		<chart-line></chart-line> -->
+		
+		<!-- <view class="oa-space_10"></view>		 -->
+
 		<!-- <view class="oa-white oa-pd15 ">项目详情</view> -->
 		<uni-list>
 			<view class="oa-node oa-pd15 oa-white oa-line_bottom" v-for="(item,key) in list">
@@ -32,9 +35,10 @@
 						:title="item.projectName"
 						:companyName="item.underTakeWorkName"
 						:leader="item.leader"	
-						:sn="'项目进度'+item.projectProgress"	
+						:sn="item.projectProgress.substr(0, item.projectProgress.length - 1)"	
 						:projectStatus="'项目状态在研'"	
-						:des="item.fileReleaseNumber"		
+						:des="item.fileReleaseNumber"	
+						:showRate="true"
 					></common-task>
 				</view>	
 				
@@ -114,13 +118,33 @@
 					pageIndex:1,
 					pageSize:100,
 				}).then(res=>{
-					console.log(res)
+					// console.log(res)
 					this.setData({
 						list:res.data
 					})
 				})
 				
 			},
+			search(e){
+				var value = e.value
+				this.$db.ProjectGetList({
+					kw:value,
+					pageIndex:1,
+					pageSize:100,
+				}).then(res=>{
+					// console.log(res)
+					this.setData({
+						list:res.data
+					})
+				})
+				
+				// this.setData({
+				// 	searchName:value
+				// })
+				// this.$db.listInit(this)
+				// this.getList(this.$data.Projectid )
+			},
+			
 			
 			/**
 			 * @method 选择选项卡
