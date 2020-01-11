@@ -6,7 +6,8 @@ class dbBase{
 	KEY_UUID = "uuid"
 	KEY_TOKEN = "token"
 	
-	URL = "http://106.13.100.67/"
+	// URL = "http://106.13.100.67/"
+	URL = "https://www.qskjad.top/"
 	// URL = "http://127.0.0.1:9000/"
 	
 	

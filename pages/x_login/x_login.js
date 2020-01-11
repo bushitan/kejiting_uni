@@ -78,47 +78,7 @@ var ACCOUNT = [
 			 * @method 测试页面
 			 */
 			test(){
-				
-			/**
-			 * fileReleaseNumber: "桂科计字[2018]242号"
-				id: "0b65425e0ec64a98b275357d03cb66aa"
-				leader: "柏宏"
-				projectName: "高品质乘用车（MPV）整车及关键技术开发与应用"
-				projectNameInScene: "高品质MPV（多用途乘用车）整车及关键技术开发与应用"
-				projectNo: "2018AA18012"
-				projectProgress: "完成60%"
-				registerAddr: "柳州市"
-				sort: "1"
-				underTakeWorkName: "上汽通用五菱汽车股份有限公司"
-			 */
-			this.$db.ProjectGetList({
-				kw:"柳州",
-				pageIndex:1,
-				pageSize:20,
-			}).then(res=>{
-				console.log(res)
-			})
-			
-			
-			
-			/**
-			 */
-			this.$db.ProjectGetDetail({
-				id:"0b65425e0ec64a98b275357d03cb66aa",
-			}).then(res=>{
-				console.log(res)
-			})
-				
-			/**
-			 */
-			this.$db.ProjectGetProgress({
-				id:"0b65425e0ec64a98b275357d03cb66aa",
-				projectNum:"桂科计字[2018]242号",
-			}).then(res=>{
-				console.log(res)
-			})
-				
-				
+				this.$db.TestProject()
 				
 				
 			},
@@ -220,23 +180,33 @@ var ACCOUNT = [
 					})
 					return 
 				}
-				// if( userName=="admin" && password == "123"){
-				if( this.checkAccount(userName,password) ){
-					// uni.navigateTo({
-					// 	url:"/pages/index/index"
-					// })
-					uni.redirectTo({
-						url:"/pages/index/index"						
-					})
-					// uni.navigateTo()({
-					// 	url:"/pages/index/index"
-					// })
-				}else{
+				// 登录
+				this.$db.Login({
+					accout:userName,
+					password:password,
+				}).then(res=>{
 					uni.showModal({
-						title:"账号密码错误",
+						title:res.msg,
 						showCancel:false,
 					})
-				}
+					if(res.code == 0)
+						uni.redirectTo({
+							url:"/pages/index/index"						
+						})
+						
+					console.log('登录结果',res)
+				})
+				
+				// if( this.checkAccount(userName,password) ){
+				// 	uni.redirectTo({
+				// 		url:"/pages/index/index"						
+				// 	})
+				// }else{
+				// 	uni.showModal({
+				// 		title:"账号密码错误",
+				// 		showCancel:false,
+				// 	})
+				// }
 				
 				
 				// this.login(userName,password)

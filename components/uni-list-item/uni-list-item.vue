@@ -15,7 +15,9 @@
 				<view v-if="showText" class="" >{{badgeText}}</view>
 				<uni-badge v-if="showBadge" :type="badgeType" :text="badgeText" />				
 				<switch v-if="showSwitch" :disabled="disabled" :checked="switchChecked" @change="onSwitchChange" />
-				<uni-icon class="uni-icon-wrapper" v-if="showArrow" :size="20" color="#bbb" type="arrowright" />
+				<!-- <uni-icon class="uni-icon-wrapper" v-if="showArrow" :size="20" color="#bbb" type="arrowright" /> -->
+				
+				<view class="this-arrow" v-if="showArrow" /></view>
 			</view>
 		</view>
 	</view>
@@ -202,5 +204,16 @@
 
 	.uni-list>.uni-list-item:last-child .uni-list-item-container:after {
 		height: 0
+	}
+	
+	.this-arrow:after{
+		font-family: uniicons;
+		content: '\E583';
+		/* position: absolute; */
+		right: 12px;
+		top: 50%;
+		color: #bbb;
+		-webkit-transform: translateY(-50%);
+		transform: translateY(-50%);
 	}
 </style>

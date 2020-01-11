@@ -11,6 +11,25 @@ class dbSon extends dbFather{
 	constructor(){
 		super()
 	}		
+	
+	/*
+	 * @method 3.0 登录
+	 * @param
+	 * 		accout{String}
+	 * 		password{String}
+	 */
+	Login(obj){
+		return new Promise((resolve, reject) => {
+			
+			var url = "api/employee/login?accout=" + obj.accout + "&password=" + obj.password
+			this.baseURL(url,"POST", obj).then(res=>{					
+				resolve(res)					
+			}).catch(res => {			
+				reject(res)
+			})
+		})
+	}
+	
 	/*
 	 * @method 3.1 获取项目列表
 	 * @param
@@ -29,10 +48,8 @@ class dbSon extends dbFather{
 	}	
 		/*
 	 * @method 3.1.1 地址查询项目
-	 * @param
-	 * 		kw{String}
-	 * 		pageIndex{Number}
-	 * 		pageSize{Number}
+	 * @param	null
+	 * 
 	 */
 	ProjectStatByAddr(obj){
 		return new Promise((resolve, reject) => {
@@ -61,7 +78,7 @@ class dbSon extends dbFather{
 	}	
 	
 	/*
-	 * @method 3.3 获取项目进度
+	 * @method 3.3 获取项目总体进度
 	 * @param
 	 * 		id{String}
 	 * 		projectNum{String}
@@ -77,21 +94,27 @@ class dbSon extends dbFather{
 	}	
 	
 		
-	// 3 首页信息获取
-	getMainInfo(obj) {
-		return new Promise((resolve, reject) => {
-			this.base({
-				url:"http://202.103.234.34:8000/wx/push/list/", 
-				data:{} ,
-				method:"POST"
-			} )
-			.then(res => resolve( res.data ))
-			.catch(res => reject(res.data))
-		})
-	}
+
 	
 	
 	
 	
 }
 module.exports = dbSon
+
+
+
+
+
+	// // 3 首页信息获取
+	// getMainInfo(obj) {
+	// 	return new Promise((resolve, reject) => {
+	// 		this.base({
+	// 			url:"http://202.103.234.34:8000/wx/push/list/", 
+	// 			data:{} ,
+	// 			method:"POST"
+	// 		} )
+	// 		.then(res => resolve( res.data ))
+	// 		.catch(res => reject(res.data))
+	// 	})
+	// }

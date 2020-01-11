@@ -33,6 +33,14 @@ Vue.component('mark', FiveMark)
 Vue.component('common-task', commonTask)
 Vue.component('common-search', commonSearch)
 
+// 项目详情
+import uniTabbar from '@/components/base_4_tabbar/tabbar.vue'// 选择条
+Vue.component('detail-tabbar',uniTabbar)
+import projectDetail from '@/components/1_project/project_detail.vue'// 选择条
+Vue.component('project-detail',projectDetail)
+
+
+
 import xxMark from '@/components/base_7_mark/mark.vue'
 Vue.component('xx-mark', xxMark)
 
