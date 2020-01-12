@@ -84,14 +84,27 @@ class db extends dbNormal{
 		
 		// 3.1 更新论文
 		this.$db.ProjectPaperEditor({
-			"ids": [1,2,3],	
+			"Id": null,
+			"EditTime": null,
+			"ProjectNo": null,
+			"ProjectName": null,
+			"PaperName": null,
+			"CompletePerson": null,
+			"ApplyPersonSort": null,
+			"PublishDate": null,
+			"DirCate": null,
+			"RefTimes": null,
+			"RelateDec": "0001-01-01",
+			"CreateTime": "0001-01-01",
+			"UpdateTime": "0001-01-01",
+			"IsEdit": "",
 		}).then(res=>{			
 			console.log('更新论文',res)
 		})
 		
 		// 3.2 获取论文详情
 		this.$db.ProjectPaperGet({
-			"ids": [1,2,3],	
+			"id": "",	
 		}).then(res=>{			
 			console.log('获取论文详情',res)
 		})

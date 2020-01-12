@@ -2,6 +2,12 @@
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
 
 		
+		{
+		    "path" : "pages/4_plan/4_plan",
+		    "style": {
+		    	"navigationBarTitleText": "项目进度"
+		    }
+		},
 		
 		{
 			"path": "pages/x_login/x_login",
@@ -44,22 +50,26 @@
             "style": {
             	"navigationBarTitleText": "项目报表"
             }
-        },{
-            "path" : "pages/4_plan/4_plan",
-            "style": {
-            	"navigationBarTitleText": "项目进度"
-            }
-        },{
+        },
+		{
             "path" : "pages/5_detail/5_detail",
             "style": {
             	"navigationBarTitleText": "项目详情"
             }
-        },{
+        },		
+		{
+		    "path" : "pages/5_detail/pro_process",
+		    "style": {
+		    	"navigationBarTitleText": "项目进度编辑"
+		    }
+		},
+		{
             "path" : "pages/6_file/6_file",
             "style": {
             	"navigationBarTitleText": "下达文号"
             }
-        },{
+        },
+		{
 			"path": "pages/article/article",
 			"style": {
 				"navigationBarTitleText": "文章详情",

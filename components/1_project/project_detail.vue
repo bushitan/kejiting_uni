@@ -60,7 +60,11 @@
 					var detail = val
 					var projectInfos = []					
 					for (var i = 0; i < detail.projectInfos.length ; i++)
-						projectInfos.push({title: detail.projectInfos[i].groupDate , text:"详情", url : "" })
+						projectInfos.push({
+							title: detail.projectInfos[i].groupDate , 
+							text:"详情", 
+							url : "/pages/5_detail/pro_process?projectNo=" + detail.projectInfos[i].projectNo +  "&datetime=" + detail.projectInfos[i].editTime ,
+						})
 					var paperInfos = []					
 					for (var i = 0; i < detail.paperInfos.length ; i++)
 						paperInfos.push({title: detail.paperInfos[i].paperName , text:"论文详情", url : "" })
@@ -105,8 +109,10 @@
 				// console.log(this.$data.patentInfos) //专利
 			},
 			
-			toDetail(){
-				
+			toDetail(url,title){
+				uni.navigateTo({
+					url:url
+				})
 			},
 		},
 	}
