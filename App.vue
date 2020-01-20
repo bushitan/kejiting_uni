@@ -38,6 +38,7 @@
 	.oa-pd15{ padding: 15px;}
 	.oa-space_5{margin-bottom: 5px;	}
 	.oa-space_10{margin-bottom: 10px;	}
+	.oa-space_60{margin-bottom: 60px;	}
 	
 	.oa-search{flex:1 1 auto;}
 </style>

@@ -55,11 +55,12 @@
 		
 		
 		<view class=" " v-show="current == 1">		
-			
 			<project-detail :processDetail="processDetail"></project-detail>
 		
 		</view>
-
+		<view class="oa-space_60">
+			
+		</view>
 	</view>
 </template>
 
@@ -69,7 +70,7 @@
 			return {
 							
 				//顶部tab选项卡
-				current: 1,
+				current:0,
 				tabList:['项目详情','实施进度'],		
 				
 				indexTabber:0,		
@@ -147,6 +148,11 @@
 			 * @method 初始化
 			 */
 			onInit(){
+				this.getDetail()
+				this.getProgress()
+			},
+			
+			getDetail(){				
 				this.$db.ProjectGetDetail({
 					id:this.$data.id,
 				}).then(res=>{
@@ -155,60 +161,22 @@
 						project:res.data
 					})
 				})
-				
+			},
+			getProgress(){				
 				this.$db.ProjectGetProgress({
 					id:this.$data.id,
 				}).then(res=>{
 					console.log(res)
 					
-					var process = res.data[0]
+					var process = res.data
 					this.setData({
 						processDetail:process,
-						projectInfos:process.projectInfos[0],
-						patentInfos:process.patentInfos[0],
-						paperInfos:process.paperInfos[0],
-						achievements:process.achievements[0],
+						projectInfos:process.projectInfos,
+						patentInfos:process.patentInfos,
+						paperInfos:process.paperInfos,
+						achievements:process.achievements,
 					})
 				})
-				
-				
-				// var programList = this.AllData.programList
-				// 
-				// var tableData = []
-				// 
-				// console.log(programList[0])
-				// var currentTitle = programList[0]
-				// var currentProgram = programList[id]
-				// 
-				// for( var i=0; i<currentTitle.length; i++){
-				// 	if ( currentTitle[i] == '联系电话')
-				// 		continue
-				// 	tableData.push({
-				// 			title:currentTitle[i], 
-				// 			content:currentProgram[i]
-				// 	})
-				// }
-				// this.setData({
-				// 	tableData:tableData
-				// })
-				
-				
-				// for( var i=0; i<programList[0].length; i++){
-				// 	// var program = programList[0]
-				// 	tableData.push({
-				// 		{title:"下达文号",content:" "}
-				// 	})
-				// }
-				// 	console.log(programList[i])
-				// 	// tableData[i].content = programList[i+1]
-				// }
-				// this.setData({
-				// 	tableData:
-				// })
-				// this.setData({
-				// 	list:programList[id]
-				// })
-				// this.setData({ list : this.AllData.noticeNews })
 			},
 			
 			/**

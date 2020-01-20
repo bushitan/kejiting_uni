@@ -15,14 +15,14 @@
 		</view> -->
 		
 		<!-- 暂时屏蔽 -->
-		<!-- <view class="oa-white ">
+		<view class="oa-white ">
 		   <picker @change="bindPickerChange" :value="index" :range="array">
 				<uni-list-item 
 				title="选择区域" 
 				
 			    :showBadge="true" :badgeText="array[index]"></uni-list-item>
 			</picker>	
-		</view> -->
+		</view>
 	<!-- 	<uni-list-item  class="oa-white "
 			:showArrow="false" 
 			title="统计信息" 
@@ -30,9 +30,10 @@
 		
 		<!-- <chart-ring :num="dataNum" :list="[1,23]" :text="'asd'"></chart-ring> -->
 		
+		<!-- <u-charts chartType="pie" canvasId="232" :opts="opts"></u-charts> -->
 		
-		<chart-ring :rate="rate" ></chart-ring>
-		
+		<!-- <chart-rin></chart-rin> -->
+		<chart-ring :rate="rate" ></chart-ring>		
 		<chart-column></chart-column>
 		<chart-line></chart-line>
 		
@@ -120,6 +121,26 @@
 				},
 				
 				rate:[],
+				
+				
+				opts:{
+  "series": [{
+	"name": "一班",
+	"data": 50
+  }, {
+	"name": "二班",
+	"data": 30
+  }, {
+	"name": "三班",
+	"data": 20
+  }, {
+	"name": "四班",
+	"data": 18
+  }, {
+	"name": "五班",
+	"data": 8
+  }]
+}
 			};
 		},
 		onLoad(){
@@ -177,7 +198,7 @@
 					})
 				})
 				
-				// this.setData({rate:this.countryRate[value]})
+				this.setData({rate:this.countryRate[value]})
 			},
 			
 			

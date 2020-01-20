@@ -5,9 +5,13 @@ class dbBase{
 	KEY_USER_INFO = "user_info"
 	KEY_UUID = "uuid"
 	KEY_TOKEN = "token"
+	KEY_IS_LEADER = "is_leader"
 	
 	// URL = "http://106.13.100.67/"
-	URL = "https://www.qskjad.top/"
+	// URL = "https://www.qskjad.top/"  // 当前演示版本
+	URL = "http://106.13.100.67:8080/"
+	// URL = "http://gkgapi.kejicloud.cn/"
+	
 	// URL = "http://127.0.0.1:9000/"
 	
 	
@@ -77,6 +81,8 @@ class dbBase{
 	
 	// 封装基础的请求
     base(options){
+		// console.log(this)
+		var that = this
         return new Promise((resolve, reject) => {
             var data = options.data || {}
 			for (var i in data){
@@ -89,6 +95,22 @@ class dbBase{
 			// debugger
 			// console.log(uni.getStorageSync("token"))
 			// debugger
+			if (uni.getStorageSync(that.KEY_TOKEN) == ""){
+				console.log(getCurrentPages())
+				var page = getCurrentPages()
+				var currentPage = page[page.length-1]
+				var loginPage = 'pages/x_login/x_login'
+				if (currentPage.route != loginPage){
+					
+					debugger
+					uni.redirectTo({
+						url: 'pages/x_login/x_login'
+					});
+				}
+					
+			}
+				
+			
             uni.request({
                 url: options.url,
                 method: options.method || "POST",

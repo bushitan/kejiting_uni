@@ -164,9 +164,48 @@ class dbSon extends dbFather{
 		})
 	}	
 	
+	/************专利*************/
+	/*
+	 * @method 4.1 更新专利		
+	 */
+	ProjectPatentEditor(obj){
+		return new Promise((resolve, reject) => {
+			this.baseURL("api/patentInfo/edit","POST", obj).then(res=>{					
+				resolve(res)					
+			}).catch(res => {			
+				reject(res)
+			})
+		})
+	}	
 	
-	
-	
+	/*
+	 * @method 4.2  获取专利详情
+	 * @param
+		   "id": null,			
+	 */
+	ProjectPatentGet(obj){
+		return new Promise((resolve, reject) => {
+			this.baseURL("api/patentInfo/getdetail","GET", obj).then(res=>{					
+				resolve(res)					
+			}).catch(res => {			
+				reject(res)
+			})
+		})
+	}		
+	/*
+	 * @method 4.3 删除指定专利
+	 * @param
+		   ids:array[string]			
+	 */
+	ProjectPatentDelete(obj){
+		return new Promise((resolve, reject) => {
+			this.baseURL("api/patentInfo/delete","POST", obj).then(res=>{					
+				resolve(res)					
+			}).catch(res => {			
+				reject(res)
+			})
+		})
+	}	
 	
 }
 module.exports = dbSon

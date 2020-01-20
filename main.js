@@ -49,9 +49,14 @@ Vue.component('xx-mark', xxMark)
 import zTable from '@/components/z-table/z-table.vue'
 Vue.component('z-table', zTable)
 
-// 图标
-import uCharts from '@/components/u-charts/u-charts.js';
-Vue.component('u-charts', uCharts);
+// 图表
+// import uCharts from '@/components/u-charts/u-charts.js';
+// import uCharts from '@/components/u-charts/component.vue';
+// Vue.component('u-charts', uCharts);
+
+import ChartsRin from '@/components/6_rin/chart_rin.vue';
+Vue.component('chart-rin', ChartsRin);
+
 import chartRing from '@/components/6_rin/6_rin.vue';
 Vue.component('chart-ring', chartRing);
 import chartColumn from '@/components/6_column/6_column.vue';
@@ -65,6 +70,9 @@ Vue.component('chart-line', chartLine);
 import noticeData from '@/common/notice_data.js' 
 import mapData from '@/common/map_data.js' 
 
+// 滑动
+import uniSwipeAction from '@/components/uni-swipe-action/uni-swipe-action.vue'
+Vue.component('uni-swipe-action', uniSwipeAction)  // 滑动条
 
 
 // 公共数据

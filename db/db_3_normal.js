@@ -13,6 +13,23 @@ class dbSon extends dbFather{
 	}		
 	
 	/*
+	 * @method 3.1 获取项目列表
+	 * @param
+	 * 		kw{String}
+	 * 		pageIndex{Number}
+	 * 		pageSize{Number}
+	 */
+	VersionCheck(obj){
+		return new Promise((resolve, reject) => {
+			this.baseURL("api/app/check/version","GET", obj).then(res=>{					
+				resolve(res)					
+			}).catch(res => {			
+				reject(res)
+			})
+		})
+	}	
+	
+	/*
 	 * @method 3.0 登录
 	 * @param
 	 * 		accout{String}
@@ -22,6 +39,8 @@ class dbSon extends dbFather{
 		return new Promise((resolve, reject) => {
 			
 			var url = "api/employee/login?accout=" + obj.accout + "&password=" + obj.password
+			
+			console.log("test:"+url);
 			this.baseURL(url,"POST", obj).then(res=>{					
 				resolve(res)					
 			}).catch(res => {			

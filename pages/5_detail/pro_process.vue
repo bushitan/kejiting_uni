@@ -11,45 +11,65 @@
 				<uni-list-item :showText="true" title="总体进度"  :badge-text="projectInfos.projectWorkInfoStage" :showArrow="false"  />
 				<uni-list-item :showText="true" title="存在的问题"   :badge-text="projectInfos.projectExistProblem" :showArrow="false" />
 			 -->
-			<view class="uni-list-cell oa-pd15 oa-white">
-				<view class="">本月完成内容</view>
-				<input class="uni-input" :value="doneContentOnMonth" name="doneContentOnMonth" maxlength="100" placeholder="请输入" />
+			 
+			 
+			 
+			<view class="" v-if="isLeader">
+				<view class="oa-node ">
+					<uni-list>	
+						<uni-list-item  :showText="true" title="本月完成内容"  :badge-text="doneContentOnMonth" :showArrow="false"/>
+						<uni-list-item :showText="true" title="工作量占比"   :badge-text="doneContentRateOnMonth" :showArrow="false"/>
+						<uni-list-item :showText="true" title="考核指标"   :badge-text="coaIndicators" :showArrow="false" />
+						<uni-list-item :showText="true" title="资助经费"   :badge-text="assistFee" :showArrow="false" />
+						<uni-list-item :showText="true" title="配套资金"   :badge-text="comInvestment" :showArrow="false" />
+						<uni-list-item :showText="true" title="配套内容"  :badge-text="underTakeDoneWorkInfo" :showArrow="false"   />
+						<uni-list-item :showText="true" title="总体进度"  :badge-text="projectWorkInfoStage" :showArrow="false"  />
+						<uni-list-item :showText="true" title="存在的问题"   :badge-text="projectExistProblem" :showArrow="false" />
+					</uni-list>
+					<uni-load-more status="noMore"></uni-load-more>
+				</view>	
 			</view>
-			<view class="uni-list-cell oa-pd15 oa-white">
-				<view class="">工作量占比</view>
-				<input class="uni-input" :value="doneContentRateOnMonth" name="doneContentRateOnMonth" maxlength="100" placeholder="请输入" />
+			<view class="" v-else>
+				<view class="uni-list-cell oa-pd15 oa-white">
+					<view class="">本月完成内容</view>
+					<input class="uni-input" :value="doneContentOnMonth" name="doneContentOnMonth" maxlength="100" placeholder="请输入" />
+				</view>
+				<view class="uni-list-cell oa-pd15 oa-white">
+					<view class="">工作量占比</view>
+					<input class="uni-input" :value="doneContentRateOnMonth" name="doneContentRateOnMonth" maxlength="100" placeholder="请输入" />
+				</view>
+				<view class="uni-list-cell oa-pd15 oa-white">
+					<view class="">考核指标</view>
+					<input class="uni-input" :value="coaIndicators" name="coaIndicators" maxlength="100" placeholder="请输入" />
+				</view>
+				<view class="uni-list-cell oa-pd15 oa-white">
+					<view class="">资助经费</view>
+					<input class="uni-input" :value="assistFee" name="assistFee" maxlength="100" placeholder="请输入" />
+				</view>
+				<view class="uni-list-cell oa-pd15 oa-white">
+					<view class="">配套资金</view>
+					<input class="uni-input" :value="comInvestment" name="comInvestment" maxlength="100" placeholder="请输入" />
+				</view>
+				<view class="uni-list-cell oa-pd15 oa-white">
+					<view class="">配套内容</view>
+					<input class="uni-input" :value="underTakeDoneWorkInfo" name="underTakeDoneWorkInfo" maxlength="100" placeholder="请输入" />
+				</view>
+				<view class="uni-list-cell oa-pd15 oa-white">
+					<view class="">总体进度</view>
+					<input class="uni-input" :value="projectWorkInfoStage" name="projectWorkInfoStage" maxlength="100" placeholder="请输入" />
+				</view>
+				<view class="uni-list-cell oa-pd15 oa-white">
+					<view class="">存在的问题</view>
+					<input class="uni-input" :value="projectExistProblem" name="projectExistProblem" maxlength="100" placeholder="请输入" />
+				</view>
+				
+				<view class=" oa-pd15  " >
+					<button form-type="submit" type="primary" >保存</button>
+				</view>
 			</view>
-			<view class="uni-list-cell oa-pd15 oa-white">
-				<view class="">考核指标</view>
-				<input class="uni-input" :value="coaIndicators" name="coaIndicators" maxlength="100" placeholder="请输入" />
-			</view>
-			<view class="uni-list-cell oa-pd15 oa-white">
-				<view class="">资助经费</view>
-				<input class="uni-input" :value="assistFee" name="assistFee" maxlength="100" placeholder="请输入" />
-			</view>
-			<view class="uni-list-cell oa-pd15 oa-white">
-				<view class="">配套资金</view>
-				<input class="uni-input" :value="comInvestment" name="comInvestment" maxlength="100" placeholder="请输入" />
-			</view>
-			<view class="uni-list-cell oa-pd15 oa-white">
-				<view class="">配套内容</view>
-				<input class="uni-input" :value="underTakeDoneWorkInfo" name="underTakeDoneWorkInfo" maxlength="100" placeholder="请输入" />
-			</view>
-			<view class="uni-list-cell oa-pd15 oa-white">
-				<view class="">总体进度</view>
-				<input class="uni-input" :value="projectWorkInfoStage" name="projectWorkInfoStage" maxlength="100" placeholder="请输入" />
-			</view>
-			<view class="uni-list-cell oa-pd15 oa-white">
-				<view class="">存在的问题</view>
-				<input class="uni-input" :value="projectExistProblem" name="projectExistProblem" maxlength="100" placeholder="请输入" />
-			</view>
-
 			
 			
 			
-			<view class=" oa-pd15  ">
-				<button form-type="submit" type="primary" >保存</button>
-			</view>
 		</form>
 	</view>
 </template>
@@ -68,6 +88,7 @@
 				underTakeDoneWorkInfo:"",
 				projectWorkInfoStage:"",
 				projectExistProblem:"",
+				isLeader:false,
 			}
 		},
 		onLoad(option){
@@ -75,6 +96,8 @@
 			this.setData({
 				projectNo : option.projectNo  || "",
 				datetime : option.datetime  || ""	,	
+				isLeader: uni.getStorageSync( this.$db.KEY_IS_LEADER)
+			
 			})
 			
 			this.onInit()
@@ -87,12 +110,17 @@
 				this.$db.ProjectProgressDetailGet({
 					"projectno": this.$data.projectNo,
 					"datetime": this.$data.datetime
-				}).then(res=>{		
+				}).then(res=>{
+					
+					console.log("获取项目进度详情:"+JSON.stringify(res));
+					
 					var data = res.data
 					for (var i in data)
 						this.$data[i] = data[i]					
-					console.log(this.$data)
+					// console.log(this.$data)
 				})
+				
+				
 			},
 			
 			formSubmit(e) {
@@ -102,6 +130,18 @@
 				
 				this.$db.ProjectProgressDetailEditor(formdata).then(res=>{			
 					console.log('编辑进度',res)
+					
+					uni.showModal({
+						title:res.msg,
+						success(){					
+							if(res.code == 0){						
+								var current = getCurrentPages()
+								var prePage = current[current.length-2]
+								prePage.getProgress()
+								uni.navigateBack({})
+							}
+						},
+					})
 				})
 			},
 		},

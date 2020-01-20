@@ -21,9 +21,12 @@
 						<progress :percent='sn.replace("完成","").replace("%","")' show-info stroke-width="3" activeColor="#1abc9c" />
 					</view>
 					<view class="oa-flex_between">
-						<view class='uni-text rate program_title'>时间进度:</view>
-						
+						<view class='uni-text rate program_title'>时间进度:</view>						
 						<progress :percent=' (parseInt(sn.replace("完成","").replace("%","")) - 10 ).toString() ' show-info stroke-width="3" activeColor="#ff6633" />
+					</view>
+					<view class="oa-flex_between">
+						<view class='uni-text rate program_title'>经费使用:</view>						
+						<progress :percent=' (parseInt(sn.replace("完成","").replace("%","")) - 10 ).toString() ' show-info stroke-width="3" activeColor="#fdc14e" />
 					</view>
 				</view>
 				
